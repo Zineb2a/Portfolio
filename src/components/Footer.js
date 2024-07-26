@@ -19,12 +19,19 @@ export const Footer = () => {
 
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
-            <div className="social-icon">
-            <a href="https://www.linkedin.com/in/zineb-alaouii/"><img src={navIcon1} alt="" /></a>
-                <a href="https://github.com/Zineb2a"><img src={navIcon2} alt="" /></a>
-                <a href="https://discordapp.com/users/334008628631830529"><img src={navIcon3} alt="" /></a>
-            </div>
-            <p>Copyright 2022. All Rights Reserved</p>
+          <div className="social-icon">
+  <a href="https://www.linkedin.com/in/zineb-alaouii/" target="_blank" rel="noopener noreferrer">
+    <img src={navIcon1} alt="LinkedIn" />
+  </a>
+  <a href="https://github.com/Zineb2a" target="_blank" rel="noopener noreferrer">
+    <img src={navIcon2} alt="GitHub" />
+  </a>
+  <a href="https://discordapp.com/users/334008628631830529" target="_blank" rel="noopener noreferrer">
+    <img src={navIcon3} alt="Discord" />
+  </a>
+</div>
+
+            <p>Copyright 2024. All Rights Reserved</p>
           </Col>
         </Row>
       </Container>

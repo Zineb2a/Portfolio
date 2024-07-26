@@ -61,7 +61,7 @@ export const Banner = () => {
 <h2 className="txt-rotate" dataPeriod="1000" data-rotate='[ "Aspiring Software Engineer", "FullStack Developer" ]'>
     <span className="wrap">{text}</span>
 </h2>
-                  <p>Hi there! I'm Zineb Alaoui, a Software Engineering student at Concordia University who loves to code. Eager to dive into real-world projects, I'm on the lookout for an internship where I can sharpen my skills and make an impact. Take a peek at my work and get in touch if you think we'd make a great team!</p>
+                  <p>Hi there! I'm Zineb Alaoui, a Software Engineering student at Concordia University. Eager to dive into real-world projects, I'm on the lookout for an internship where I can make a difference. Take a peek at my work and get in touch if you think we'd make a great team!</p>
                   <button 
   onClick={() => document.getElementById('connect').scrollIntoView({ behavior: 'smooth' })}
   style={{ background: 'none', border: 'none' }}>

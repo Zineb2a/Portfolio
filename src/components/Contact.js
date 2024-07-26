@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.png";
+import contactImg from "../assets/img/contact2.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import React, { useRef } from 'react';
@@ -51,7 +51,8 @@ export const Contact = () => {
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us"/>
+               <img src={contactImg} alt="Contact Us"  />
+
               }
             </TrackVisibility>
           </Col>
