@@ -7,6 +7,7 @@ import projImg4 from "../assets/img/simon.png";
 import projImg5 from "../assets/img/chatbot.png";
 import projImg6 from "../assets/img/fleetflow.png";
 import projImg7 from "../assets/img/radius.png";
+import projImg8 from "../assets/img/F1.png";
 
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -71,6 +72,15 @@ export const Projects = () => {
       category: "Frontend",
       stack: ["HTML", "CSS", "JavaScript"],
     },
+    {
+      title: "F1 Race Analysis Project",
+      description: "Analyzes the performance and various aspects of the F1 Montreal Grand Prix 2024 using data analysis techniques. The analysis includes driver performance, pit stop strategies, tire strategies, weather impact, and incidents during the race.",
+      imgUrl: projImg8,
+      url: "https://github.com/Zineb2a/F1_Montreal2024_Analysis",
+      category: "Backend",
+      stack: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Requests"]
+    }
+    
   ];
 
   return (
