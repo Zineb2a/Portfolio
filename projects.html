@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expanded project archive for Zineb Alaoui covering data, AI, and full-stack work.">
+    <meta name="author" content="Zineb Alaoui">
+    <title>Zineb Alaoui | Projects</title>
+    <meta name="theme-color" content="#45C2FF">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link type="image/png" rel="icon" href="Assets/images/custom_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neo-yellow': '#FFE600',
+                        'neo-pink': '#FF4FA3',
+                        'neo-blue': '#45C2FF',
+                        'neo-green': '#7DFF8A',
+                        'neo-purple': '#B56CFF',
+                        'neo-orange': '#FF9A3D',
+                        'neo-red': '#FF4D6D',
+                        'neo-white': '#FFFDFC',
+                        'neo-black': '#121212',
+                    },
+                    fontFamily: {
+                        'display': ['"Space Grotesk"', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'hard': '4px 4px 0px 0px #000',
+                        'hard-sm': '2px 2px 0px 0px #000',
+                        'hard-lg': '8px 8px 0px 0px #000',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            cursor: none;
+            background-color: #FFFDFC;
+            background-image:
+                radial-gradient(rgba(69, 194, 255, 0.22) 1px, transparent 1px),
+                linear-gradient(to right, #d7eefc 1px, transparent 1px),
+                linear-gradient(to bottom, #f0d6e6 1px, transparent 1px);
+            background-size: 40px 40px, 100px 100px, 100px 100px;
+        }
+
+        #cursor {
+            pointer-events: none;
+            position: fixed;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: width 0.2s, height 0.2s, background-color 0.2s, transform 0.1s;
+        }
+
+        body.dark-mode {
+            background-color: #0b1120;
+            background-image:
+                radial-gradient(rgba(69, 194, 255, 0.22) 1px, transparent 1px),
+                linear-gradient(to right, rgba(125, 211, 252, 0.12) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(244, 114, 182, 0.12) 1px, transparent 1px);
+        }
+
+        body.dark-mode .bg-white,
+        body.dark-mode .bg-neo-white {
+            background-color: #111827 !important;
+            color: #f8fafc !important;
+        }
+
+        body.dark-mode .bg-black,
+        body.dark-mode .bg-neo-black {
+            background-color: #020617 !important;
+            color: #f8fafc !important;
+        }
+
+        body.dark-mode .text-black,
+        body.dark-mode .text-neo-black {
+            color: #f8fafc !important;
+        }
+
+        body.dark-mode .text-gray-400,
+        body.dark-mode .text-gray-500,
+        body.dark-mode .text-gray-600,
+        body.dark-mode .text-gray-700 {
+            color: #cbd5e1 !important;
+        }
+
+        body.dark-mode .border-black,
+        body.dark-mode .border-neo-black,
+        body.dark-mode .border-gray-700,
+        body.dark-mode .border-gray-800,
+        body.dark-mode .border-gray-300 {
+            border-color: #f8fafc !important;
+        }
+
+        body.dark-mode .shadow-hard {
+            box-shadow: 4px 4px 0px 0px #45C2FF !important;
+        }
+
+        body.dark-mode .shadow-hard-sm {
+            box-shadow: 2px 2px 0px 0px #45C2FF !important;
+        }
+
+        body.dark-mode .shadow-hard-lg {
+            box-shadow: 8px 8px 0px 0px #45C2FF !important;
+        }
+
+        body.dark-mode header {
+            background-color: rgba(15, 23, 42, 0.92) !important;
+        }
+
+        body.dark-mode header h1,
+        body.dark-mode header h1 span:not(.text-neo-blue):not(.text-neo-pink) {
+            color: #f8fafc !important;
+        }
+    </style>
+</head>
+
+<body class="font-display text-neo-black">
+    <div id="cursor" class="w-6 h-6 rounded-full bg-white"></div>
+
+    <header class="sticky top-0 z-40 border-b-4 border-black bg-neo-white/95 backdrop-blur px-4 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+                <p class="font-mono text-xs uppercase tracking-[0.3em] text-neo-blue" data-en="PROJECT ARCHIVE" data-fr="ARCHIVE PROJETS">PROJECT ARCHIVE</p>
+                <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight">
+                    <span data-en="View" data-fr="Voir">View</span><span class="text-neo-blue">_</span><span class="text-neo-pink" data-en="More" data-fr="Plus">More</span>
+                </h1>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+                <button id="theme-toggle" class="px-3 py-2 bg-white text-black border-2 border-black font-mono font-black cursor-hover"
+                    data-theme-light-en="ri-moon-line" data-theme-light-fr="ri-moon-line" data-theme-dark-en="ri-sun-line"
+                    data-theme-dark-fr="ri-sun-line" aria-label="Toggle theme">
+                    <i class="ri-moon-line"></i>
+                </button>
+                <button id="lang-en" class="px-3 py-2 bg-neo-blue text-black border-2 border-black font-mono font-black cursor-hover">EN</button>
+                <button id="lang-fr" class="px-3 py-2 bg-white text-black border-2 border-black font-mono font-black cursor-hover">FR</button>
+                <a href="index.html#projects" class="cursor-hover inline-flex items-center gap-2 border-2 border-black bg-neo-yellow px-4 py-2 font-mono font-black uppercase shadow-hard-sm hover:bg-white transition-all">
+                    <i class="ri-arrow-left-line"></i>
+                    <span data-en="Back" data-fr="Retour">Back</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-4 py-10">
+        <section class="max-w-7xl mx-auto mb-10">
+            <div class="border-4 border-black bg-white shadow-hard p-6 md:p-8">
+                <p class="font-mono text-sm md:text-base text-gray-700 max-w-4xl" data-en="A broader look at my full-stack, data, and AI work across academic, capstone, and product-oriented projects." data-fr="Un aperçu plus large de mon travail full-stack, data et IA à travers des projets académiques, de capstone et orientés produit.">A broader look at my full-stack, data, and AI work across academic, capstone, and product-oriented projects.</p>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <article id="bambuu" class="border-4 border-black bg-white shadow-hard overflow-hidden">
+                <img src="Assets/images/bambu.png" alt="Bambuu" class="w-full h-auto object-contain border-b-4 border-black bg-white">
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-xs uppercase tracking-[0.25em] text-neo-green">FINTECH</p>
+                            <h2 class="text-3xl font-black uppercase">Bambuu</h2>
+                        </div>
+                        <span class="border-2 border-black bg-neo-green px-3 py-1 font-mono text-xs font-bold uppercase" data-en="Latest Project" data-fr="Projet Récent">Latest Project</span>
+                    </div>
+                    <p class="font-mono text-sm text-gray-700 mb-4" data-en="Student-focused personal finance app built for irregular income, recurring subscriptions, short-term savings goals, AI smart insights, and real student spending behaviour." data-fr="Application de finances personnelles pensée pour les étudiants avec revenus irréguliers, abonnements récurrents, objectifs d'épargne à court terme, smart insights IA et comportements réels de dépense étudiante.">Student-focused personal finance app built for irregular income, recurring subscriptions, short-term savings goals, AI smart insights, and real student spending behaviour.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 font-mono text-xs">
+                        <div class="border-2 border-black p-3 bg-neo-blue/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Context" data-fr="Contexte">Context</p>
+                            <p class="font-bold" data-en="Built for students managing part-time jobs, scholarships, allowances, and recurring spending." data-fr="Conçu pour des étudiants gérant emplois à temps partiel, bourses, allocations et dépenses récurrentes.">Built for students managing part-time jobs, scholarships, allowances, and recurring spending.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-yellow/30">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Role" data-fr="Rôle">Role</p>
+                            <p class="font-bold" data-en="Project Manager and Full-Stack Developer in a 4-person team." data-fr="Project Manager et développeuse full-stack dans une équipe de 4 personnes.">Project Manager and Full-Stack Developer in a 4-person team.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-pink/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Outcome" data-fr="Résultat">Outcome</p>
+                            <p class="font-bold" data-en="Winner of a product management hackathon with a practical bilingual finance product for students." data-fr="Projet gagnant d'un hackathon de product management avec un produit finance bilingue concret pour étudiants.">Winner of a product management hackathon with a practical bilingual finance product for students.</p>
+                        </div>
+                    </div>
+                    <ul class="font-mono text-sm space-y-2 mb-5">
+                        <li data-en="Tracks income, expenses, subscriptions, savings goals, and recurring transactions including biweekly income." data-fr="Suivi des revenus, dépenses, abonnements, objectifs d'épargne et transactions récurrentes, y compris les revenus bihebdomadaires.">Tracks income, expenses, subscriptions, savings goals, and recurring transactions including biweekly income.</li>
+                        <li data-en="Includes student discount detection, AI-powered smart insights, investment education, spending tips, dark mode, multiple currencies, and bilingual support." data-fr="Inclut détection d'opportunités étudiantes, smart insights pilotés par l'IA, éducation à l'investissement, conseils de dépenses, dark mode, multi-devises et support bilingue.">Includes student discount detection, AI-powered smart insights, investment education, spending tips, dark mode, multiple currencies, and bilingual support.</li>
+                        <li data-en="Built with React, TypeScript, Vite, Supabase, Tailwind CSS, and Recharts." data-fr="Construit avec React, TypeScript, Vite, Supabase, Tailwind CSS et Recharts.">Built with React, TypeScript, Vite, Supabase, Tailwind CSS, and Recharts.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 mb-5 font-mono text-xs font-bold">
+                        <span class="bg-neo-black text-white px-2 py-1">React</span>
+                        <span class="bg-neo-black text-white px-2 py-1">TypeScript</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Vite</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Supabase</span>
+                        <span class="bg-neo-black text-white px-2 py-1">TailwindCSS</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Recharts</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://bambuu.me/" target="_blank" class="inline-flex items-center gap-2 border-2 border-black bg-neo-blue px-4 py-2 font-mono font-black uppercase shadow-hard-sm hover:bg-white transition-all">
+                            <i class="ri-external-link-line"></i>
+                            <span data-en="Live Demo" data-fr="Démo Live">Live Demo</span>
+                        </a>
+                        <a href="https://github.com/Zineb2a/Bambuu" target="_blank" class="inline-flex items-center gap-2 border-2 border-black bg-neo-green px-4 py-2 font-mono font-black uppercase shadow-hard-sm hover:bg-white transition-all">
+                            <i class="ri-github-fill"></i>
+                            <span data-en="Repository" data-fr="Repository">Repository</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article id="foodflow" class="border-4 border-black bg-white shadow-hard overflow-hidden">
+                <img src="Assets/images/foodflow.png" alt="FoodFlow" class="w-full h-auto object-contain border-b-4 border-black bg-white">
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-xs uppercase tracking-[0.25em] text-neo-pink">CAPSTONE</p>
+                            <h2 class="text-3xl font-black uppercase">FoodFlow</h2>
+                        </div>
+                        <span class="border-2 border-black bg-neo-green px-3 py-1 font-mono text-xs font-bold uppercase" data-en="Sept 2025 - May 2026" data-fr="Sept 2025 - Mai 2026">Sept 2025 - May 2026</span>
+                    </div>
+                    <p class="font-mono text-sm text-gray-700 mb-4" data-en="FoodFlow connects restaurants, grocery stores, bakeries, and event organizers with verified charities, shelters, and community kitchens to redistribute surplus food in real time instead of wasting it." data-fr="FoodFlow relie restaurants, épiceries, boulangeries et organisateurs d'événements à des associations, refuges et cuisines communautaires vérifiés pour redistribuer les surplus alimentaires en temps réel au lieu de les gaspiller.">FoodFlow connects restaurants, grocery stores, bakeries, and event organizers with verified charities, shelters, and community kitchens to redistribute surplus food in real time instead of wasting it.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 font-mono text-xs">
+                        <div class="border-2 border-black p-3 bg-neo-blue/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Context" data-fr="Contexte">Context</p>
+                            <p class="font-bold" data-en="Capstone platform addressing food insecurity, surplus redistribution, and compliance with food waste regulations." data-fr="Plateforme de capstone répondant à l'insécurité alimentaire, à la redistribution des surplus et à la conformité avec les réglementations sur le gaspillage alimentaire.">Capstone platform addressing food insecurity, surplus redistribution, and compliance with food waste regulations.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-yellow/30">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Role" data-fr="Rôle">Role</p>
+                            <p class="font-bold" data-en="Project Manager and Frontend Lead for an 11-person team coordinating product direction and frontend delivery." data-fr="Project Manager et lead front-end d'une équipe de 11 personnes, en charge de la direction produit et de la livraison front-end.">Project Manager and Frontend Lead for an 11-person team coordinating product direction and frontend delivery.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-pink/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Outcome" data-fr="Résultat">Outcome</p>
+                            <p class="font-bold" data-en="Built a real-time redistribution product with measurable social and environmental impact across donors, receivers, and administrators." data-fr="Construction d'un produit de redistribution en temps réel avec un impact social et environnemental mesurable pour donateurs, bénéficiaires et administrateurs.">Built a real-time redistribution product with measurable social and environmental impact across donors, receivers, and administrators.</p>
+                        </div>
+                    </div>
+                    <ul class="font-mono text-sm space-y-2 mb-5">
+                        <li data-en="Connects businesses with verified charities, shelters, and community kitchens so edible surplus food reaches people who need it instead of being discarded." data-fr="Relie les entreprises à des associations, refuges et cuisines communautaires vérifiés afin que les surplus alimentaires consommables atteignent les personnes qui en ont besoin au lieu d'être jetés.">Connects businesses with verified charities, shelters, and community kitchens so edible surplus food reaches people who need it instead of being discarded.</li>
+                        <li data-en="As Project Manager and Frontend Lead, I coordinated an 11-person team while owning dashboards, role-based user flows, maps, and real-time frontend experiences." data-fr="En tant que Project Manager et lead front-end, j'ai coordonné une équipe de 11 personnes tout en pilotant les tableaux de bord, les parcours utilisateurs par rôle, les cartes et les expériences front-end temps réel.">As Project Manager and Frontend Lead, I coordinated an 11-person team while owning dashboards, role-based user flows, maps, and real-time frontend experiences.</li>
+                        <li data-en="The product helps reduce food waste, improve operational coordination, and support compliance with food waste regulations." data-fr="Le produit aide à réduire le gaspillage alimentaire, à améliorer la coordination opérationnelle et à soutenir la conformité aux réglementations sur le gaspillage alimentaire.">The product helps reduce food waste, improve operational coordination, and support compliance with food waste regulations.</li>
+                    </ul>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 font-mono text-xs">
+                        <div class="border-2 border-black p-3 bg-neo-blue/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Frontend" data-fr="Frontend">Frontend</p>
+                            <p class="font-bold" data-en="React 19, React Router, Axios, React Icons, Lucide React, React DatePicker, React Select, React Confetti, Google Maps API, Firebase, SockJS, STOMP.js." data-fr="React 19, React Router, Axios, React Icons, Lucide React, React DatePicker, React Select, React Confetti, Google Maps API, Firebase, SockJS, STOMP.js.">React 19, React Router, Axios, React Icons, Lucide React, React DatePicker, React Select, React Confetti, Google Maps API, Firebase, SockJS, STOMP.js.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-yellow/30">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Backend" data-fr="Backend">Backend</p>
+                            <p class="font-bold" data-en="Spring Boot, Spring Data JPA, Spring Security, Spring WebSocket, PostgreSQL, JWT, Flyway, Lombok, Spring Validation, Brevo." data-fr="Spring Boot, Spring Data JPA, Spring Security, Spring WebSocket, PostgreSQL, JWT, Flyway, Lombok, Spring Validation, Brevo.">Spring Boot, Spring Data JPA, Spring Security, Spring WebSocket, PostgreSQL, JWT, Flyway, Lombok, Spring Validation, Brevo.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-pink/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="DevOps" data-fr="DevOps">DevOps</p>
+                            <p class="font-bold" data-en="Docker, Docker Compose, Maven, npm, Nginx, Node.js 20, Java 17." data-fr="Docker, Docker Compose, Maven, npm, Nginx, Node.js 20, Java 17.">Docker, Docker Compose, Maven, npm, Nginx, Node.js 20, Java 17.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-5 font-mono text-xs font-bold">
+                        <span class="bg-neo-black text-white px-2 py-1">React 19</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Spring Boot</span>
+                        <span class="bg-neo-black text-white px-2 py-1">PostgreSQL</span>
+                        <span class="bg-neo-black text-white px-2 py-1">WebSockets</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Google Maps API</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Docker</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Firebase</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://foodflow-org.up.railway.app/" target="_blank" class="inline-flex items-center gap-2 border-2 border-black bg-neo-blue px-4 py-2 font-mono font-black uppercase shadow-hard-sm hover:bg-white transition-all">
+                            <i class="ri-external-link-line"></i>
+                            <span data-en="Live Demo" data-fr="Démo Live">Live Demo</span>
+                        </a>
+                        <a href="https://github.com/SOEN490-CAPSTONE2026/FoodFlow" target="_blank" class="inline-flex items-center gap-2 border-2 border-black bg-neo-green px-4 py-2 font-mono font-black uppercase shadow-hard-sm hover:bg-white transition-all">
+                            <i class="ri-github-fill"></i>
+                            <span data-en="Repository" data-fr="Repository">Repository</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article id="recommender-systems" class="border-4 border-black bg-white shadow-hard overflow-hidden">
+                <img src="Assets/images/vitravelbuddy.png" alt="Recommender Systems" class="w-full aspect-video object-cover border-b-4 border-black">
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-xs uppercase tracking-[0.25em] text-neo-blue" data-en="DATA + AI" data-fr="DATA + IA">DATA + AI</p>
+                            <h2 class="text-3xl font-black uppercase">Recommender Systems</h2>
+                        </div>
+                        <span class="border-2 border-black bg-neo-blue px-3 py-1 font-mono text-xs font-bold uppercase">Apr 2025</span>
+                    </div>
+                    <p class="font-mono text-sm text-gray-700 mb-4" data-en="E-commerce recommendation project combining trend analysis, collaborative filtering, and association rule mining." data-fr="Projet de recommandation e-commerce combinant analyse de tendances, filtrage collaboratif et règles d'association.">E-commerce recommendation project combining trend analysis, collaborative filtering, and association rule mining.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 font-mono text-xs">
+                        <div class="border-2 border-black p-3 bg-neo-blue/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Context" data-fr="Contexte">Context</p>
+                            <p class="font-bold" data-en="Sparse e-commerce interaction data with recommendation quality challenges." data-fr="Données d'interactions e-commerce clairsemées avec enjeux de qualité de recommandation.">Sparse e-commerce interaction data with recommendation quality challenges.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-yellow/30">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Role" data-fr="Rôle">Role</p>
+                            <p class="font-bold" data-en="Built analytics and evaluation workflows for recommendation strategies." data-fr="Construction des workflows d'analyse et d'évaluation pour des stratégies de recommandation.">Built analytics and evaluation workflows for recommendation strategies.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-pink/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Outcome" data-fr="Résultat">Outcome</p>
+                            <p class="font-bold" data-en="Turned metrics like coverage and precision into usable product insights." data-fr="Transformation de métriques comme la couverture et la précision en insights produit exploitables.">Turned metrics like coverage and precision into usable product insights.</p>
+                        </div>
+                    </div>
+                    <ul class="font-mono text-sm space-y-2 mb-5">
+                        <li data-en="Worked on precision, recall, coverage, and diversity across sparse interaction data." data-fr="Travail sur la précision, le rappel, la couverture et la diversité sur des données d'interactions clairsemées.">Worked on precision, recall, coverage, and diversity across sparse interaction data.</li>
+                        <li data-en="Focused on translating model behavior into useful product discovery insights." data-fr="Accent mis sur la traduction du comportement du modèle en insights utiles pour la découverte produit.">Focused on translating model behavior into useful product discovery insights.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="bg-neo-black text-white px-2 py-1">Python</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Pandas</span>
+                        <span class="bg-neo-black text-white px-2 py-1">scikit-learn</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Apriori</span>
+                    </div>
+                </div>
+            </article>
+
+            <article id="memorylens" class="border-4 border-black bg-white shadow-hard overflow-hidden">
+                <img src="Assets/images/memorylens.png" alt="MemoryLens" class="w-full h-auto object-contain border-b-4 border-black bg-white">
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-xs uppercase tracking-[0.25em] text-neo-purple">AI APP</p>
+                            <h2 class="text-3xl font-black uppercase">MemoryLens</h2>
+                        </div>
+                        <span class="border-2 border-black bg-neo-purple px-3 py-1 font-mono text-xs font-bold uppercase">Feb 2025</span>
+                    </div>
+                    <p class="font-mono text-sm text-gray-700 mb-4" data-en="MemoryLens is a mobile app designed to help people affected by memory loss recognize important people, places, and objects through face recognition, object recognition, voice interaction, and saved memories." data-fr="MemoryLens est une application mobile conçue pour aider les personnes touchées par la perte de mémoire à reconnaître les personnes, lieux et objets importants grâce à la reconnaissance faciale, la reconnaissance d'objets, l'interaction vocale et des souvenirs enregistrés.">MemoryLens is a mobile app designed to help people affected by memory loss recognize important people, places, and objects through face recognition, object recognition, voice interaction, and saved memories.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 font-mono text-xs">
+                        <div class="border-2 border-black p-3 bg-neo-blue/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Context" data-fr="Contexte">Context</p>
+                            <p class="font-bold" data-en="Assistive mobile app for users affected by memory loss, including Alzheimer's-related use cases and daily recognition support." data-fr="Application mobile d'assistance pour des utilisateurs touchés par la perte de mémoire, y compris des cas liés à Alzheimer et au soutien quotidien de la reconnaissance.">Assistive mobile app for users affected by memory loss, including Alzheimer's-related use cases and daily recognition support.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-yellow/30">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Role" data-fr="Rôle">Role</p>
+                            <p class="font-bold" data-en="Built the app flow across mobile, recognition, AR, authentication, storage, and conversational memory retrieval." data-fr="Construction du flux applicatif entre mobile, reconnaissance, AR, authentification, stockage et récupération conversationnelle des souvenirs.">Built the app flow across mobile, recognition, AR, authentication, storage, and conversational memory retrieval.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-pink/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Outcome" data-fr="Résultat">Outcome</p>
+                            <p class="font-bold" data-en="Created a more independent experience for users through instant identification, saved memory playback, and personalized object recognition." data-fr="Création d'une expérience plus autonome pour les utilisateurs grâce à l'identification instantanée, à la restitution de souvenirs enregistrés et à la reconnaissance personnalisée d'objets.">Created a more independent experience for users through instant identification, saved memory playback, and personalized object recognition.</p>
+                        </div>
+                    </div>
+                    <ul class="font-mono text-sm space-y-2 mb-5">
+                        <li data-en="Users can upload virtual memories of people, objects, and places, add labels and notes, and retrieve previous interactions when something is recognized." data-fr="Les utilisateurs peuvent enregistrer des souvenirs virtuels de personnes, d'objets et de lieux, ajouter des labels et des notes, puis retrouver les interactions passées lors d'une reconnaissance.">Users can upload virtual memories of people, objects, and places, add labels and notes, and retrieve previous interactions when something is recognized.</li>
+                        <li data-en="FaceNet powers face recognition, YOLOv8 supports personalized object detection, and ViroReact enables AR overlays when objects are scanned." data-fr="FaceNet alimente la reconnaissance faciale, YOLOv8 prend en charge la détection personnalisée d'objets et ViroReact permet des overlays AR lors du scan des objets.">FaceNet powers face recognition, YOLOv8 supports personalized object detection, and ViroReact enables AR overlays when objects are scanned.</li>
+                        <li data-en="The app also includes voice notes, voice-to-text interaction, room-awareness ideas such as 'Where am I?', and cloud-backed storage for saved memories." data-fr="L'application inclut aussi des notes vocales, une interaction voice-to-text, des idées de reconnaissance de lieu comme 'Where am I?' et un stockage cloud pour les souvenirs enregistrés.">The app also includes voice notes, voice-to-text interaction, room-awareness ideas such as 'Where am I?', and cloud-backed storage for saved memories.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="bg-neo-black text-white px-2 py-1">React Native</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Expo</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Auth0</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Firestore</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Firebase Storage</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Cloudinary</span>
+                        <span class="bg-neo-black text-white px-2 py-1">YOLOv8</span>
+                        <span class="bg-neo-black text-white px-2 py-1">FaceNet</span>
+                        <span class="bg-neo-black text-white px-2 py-1">ViroReact</span>
+                    </div>
+                </div>
+            </article>
+
+            <article id="churn-analysis" class="border-4 border-black bg-white shadow-hard overflow-hidden">
+                <img src="Assets/images/mindcare.png" alt="Churn Analysis" class="w-full aspect-video object-cover border-b-4 border-black">
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-xs uppercase tracking-[0.25em] text-neo-orange" data-en="BUSINESS + DATA" data-fr="BUSINESS + DATA">BUSINESS + DATA</p>
+                            <h2 class="text-3xl font-black uppercase">Churn Analysis</h2>
+                        </div>
+                        <span class="border-2 border-black bg-neo-orange px-3 py-1 font-mono text-xs font-bold uppercase">Feb 2025</span>
+                    </div>
+                    <p class="font-mono text-sm text-gray-700 mb-4" data-en="Customer churn and retention analysis based on exploratory analysis, segmentation, and business recommendations." data-fr="Analyse du churn client et de la rétention basée sur l'analyse exploratoire, la segmentation et des recommandations business.">Customer churn and retention analysis based on exploratory analysis, segmentation, and business recommendations.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 font-mono text-xs">
+                        <div class="border-2 border-black p-3 bg-neo-blue/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Context" data-fr="Contexte">Context</p>
+                            <p class="font-bold" data-en="Business dataset focused on understanding customer churn drivers." data-fr="Jeu de données business centré sur la compréhension des facteurs de churn client.">Business dataset focused on understanding customer churn drivers.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-yellow/30">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Role" data-fr="Rôle">Role</p>
+                            <p class="font-bold" data-en="Performed exploratory analysis, segmentation, and retention prioritization." data-fr="Réalisation d'analyses exploratoires, de segmentation et de priorisation de la rétention.">Performed exploratory analysis, segmentation, and retention prioritization.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-pink/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Outcome" data-fr="Résultat">Outcome</p>
+                            <p class="font-bold" data-en="Delivered retention recommendations tied to measurable business impact." data-fr="Livraison de recommandations de rétention liées à un impact business mesurable.">Delivered retention recommendations tied to measurable business impact.</p>
+                        </div>
+                    </div>
+                    <ul class="font-mono text-sm space-y-2 mb-5">
+                        <li data-en="Quantified the impact of engagement, tenure, and usage patterns." data-fr="Quantification de l'impact de l'engagement, de l'ancienneté et des schémas d'usage.">Quantified the impact of engagement, tenure, and usage patterns.</li>
+                        <li data-en="Prioritized retention actions based on potential business impact." data-fr="Priorisation des actions de rétention selon leur impact business potentiel.">Prioritized retention actions based on potential business impact.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="bg-neo-black text-white px-2 py-1">Python</span>
+                        <span class="bg-neo-black text-white px-2 py-1">NumPy</span>
+                        <span class="bg-neo-black text-white px-2 py-1">SQL</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Data Viz</span>
+                    </div>
+                </div>
+            </article>
+
+            <article id="aura" class="border-4 border-black bg-white shadow-hard overflow-hidden">
+                <img src="Assets/images/aura.png" alt="Aura" class="w-full aspect-video object-cover border-b-4 border-black">
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-xs uppercase tracking-[0.25em] text-neo-red">FULL-STACK</p>
+                            <h2 class="text-3xl font-black uppercase">Aura</h2>
+                        </div>
+                        <span class="border-2 border-black bg-neo-red px-3 py-1 font-mono text-xs font-bold uppercase">Dec 2024</span>
+                    </div>
+                    <p class="font-mono text-sm text-gray-700 mb-4" data-en="Aura is a full-stack e-commerce platform for artisanal handcrafted products such as soaps, candles, and related goods, combining a customer storefront, an admin dashboard, and a backend API." data-fr="Aura est une plateforme e-commerce full-stack pour des produits artisanaux faits main comme des savons, des bougies et autres articles, combinant une boutique client, un tableau de bord admin et une API backend.">Aura is a full-stack e-commerce platform for artisanal handcrafted products such as soaps, candles, and related goods, combining a customer storefront, an admin dashboard, and a backend API.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 font-mono text-xs">
+                        <div class="border-2 border-black p-3 bg-neo-blue/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Context" data-fr="Contexte">Context</p>
+                            <p class="font-bold" data-en="End-to-end commerce experience for showcasing, managing, and selling artisanal handmade products." data-fr="Expérience e-commerce de bout en bout pour présenter, gérer et vendre des produits artisanaux faits main.">End-to-end commerce experience for showcasing, managing, and selling artisanal handmade products.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-yellow/30">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Role" data-fr="Rôle">Role</p>
+                            <p class="font-bold" data-en="Built reusable frontend components, admin workflows, and secure backend APIs for authentication, products, cart, and orders." data-fr="Construction de composants front-end réutilisables, de workflows admin et d'APIs backend sécurisées pour l'authentification, les produits, le panier et les commandes.">Built reusable frontend components, admin workflows, and secure backend APIs for authentication, products, cart, and orders.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-pink/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Outcome" data-fr="Résultat">Outcome</p>
+                            <p class="font-bold" data-en="Delivered a full shopping flow spanning browsing, filtering, checkout, order tracking, inventory management, and secure authentication." data-fr="Livraison d'un parcours d'achat complet couvrant navigation, filtrage, checkout, suivi des commandes, gestion d'inventaire et authentification sécurisée.">Delivered a full shopping flow spanning browsing, filtering, checkout, order tracking, inventory management, and secure authentication.</p>
+                        </div>
+                    </div>
+                    <ul class="font-mono text-sm space-y-2 mb-5">
+                        <li data-en="The platform includes a customer storefront for browsing products, filtering catalog items, viewing product details, managing carts, checking out, and tracking orders." data-fr="La plateforme inclut une boutique client pour parcourir les produits, filtrer le catalogue, consulter les détails produits, gérer le panier, passer commande et suivre les achats.">The platform includes a customer storefront for browsing products, filtering catalog items, viewing product details, managing carts, checking out, and tracking orders.</li>
+                        <li data-en="An admin panel supports product creation, updates, removals, image uploads, and order status management." data-fr="Un panneau admin permet la création, la mise à jour et la suppression de produits, l'upload d'images et la gestion des statuts de commande.">An admin panel supports product creation, updates, removals, image uploads, and order status management.</li>
+                        <li data-en="The backend handles JWT-based authentication, CRUD APIs, cart management, order workflows, image management through Cloudinary, and secure password hashing with bcrypt." data-fr="Le backend gère l'authentification par JWT, les APIs CRUD, la gestion du panier, les workflows de commande, la gestion d'images via Cloudinary et le hash sécurisé des mots de passe avec bcrypt.">The backend handles JWT-based authentication, CRUD APIs, cart management, order workflows, image management through Cloudinary, and secure password hashing with bcrypt.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="bg-neo-black text-white px-2 py-1">React</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Vite</span>
+                        <span class="bg-neo-black text-white px-2 py-1">TailwindCSS</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Express</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Node.js</span>
+                        <span class="bg-neo-black text-white px-2 py-1">MongoDB</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Cloudinary</span>
+                        <span class="bg-neo-black text-white px-2 py-1">JWT</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3 mt-5">
+                        <a href="https://github.com/Zineb2a/FullStack-Ecommerce" target="_blank" class="inline-flex items-center gap-2 border-2 border-black bg-neo-green px-4 py-2 font-mono font-black uppercase shadow-hard-sm hover:bg-white transition-all">
+                            <i class="ri-github-fill"></i>
+                            <span data-en="Repository" data-fr="Repository">Repository</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article id="f1-race-analysis" class="border-4 border-black bg-white shadow-hard overflow-hidden">
+                <img src="Assets/images/vitravelbuddy.png" alt="F1 Race Analysis" class="w-full aspect-video object-cover border-b-4 border-black">
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-xs uppercase tracking-[0.25em] text-neo-green" data-en="ANALYTICS" data-fr="ANALYTIQUE">ANALYTICS</p>
+                            <h2 class="text-3xl font-black uppercase">F1 Race Analysis</h2>
+                        </div>
+                        <span class="border-2 border-black bg-neo-green px-3 py-1 font-mono text-xs font-bold uppercase">Jun 2024</span>
+                    </div>
+                    <p class="font-mono text-sm text-gray-700 mb-4" data-en="Data analysis pipeline exploring driver performance, tire degradation, pit stops, and race incidents." data-fr="Pipeline d'analyse de données explorant les performances des pilotes, la dégradation des pneus, les arrêts et les incidents de course.">Data analysis pipeline exploring driver performance, tire degradation, pit stops, and race incidents.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 font-mono text-xs">
+                        <div class="border-2 border-black p-3 bg-neo-blue/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Context" data-fr="Contexte">Context</p>
+                            <p class="font-bold" data-en="Race telemetry and incident data from the Montreal Grand Prix 2024." data-fr="Données de télémétrie et d'incidents de course du Grand Prix de Montréal 2024.">Race telemetry and incident data from the Montreal Grand Prix 2024.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-yellow/30">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Role" data-fr="Rôle">Role</p>
+                            <p class="font-bold" data-en="Built the analysis pipeline and visual storytelling around race strategy." data-fr="Construction du pipeline d'analyse et de la narration visuelle autour de la stratégie de course.">Built the analysis pipeline and visual storytelling around race strategy.</p>
+                        </div>
+                        <div class="border-2 border-black p-3 bg-neo-pink/15">
+                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Outcome" data-fr="Résultat">Outcome</p>
+                            <p class="font-bold" data-en="Produced clear comparisons between qualifying, race pace, and strategic choices." data-fr="Production de comparaisons claires entre qualifications, rythme de course et choix stratégiques.">Produced clear comparisons between qualifying, race pace, and strategic choices.</p>
+                        </div>
+                    </div>
+                    <ul class="font-mono text-sm space-y-2 mb-5">
+                        <li data-en="Generated visual comparisons between qualifying and race performance." data-fr="Génération de comparaisons visuelles entre qualifications et performance en course.">Generated visual comparisons between qualifying and race performance.</li>
+                        <li data-en="Used race data to extract strategic insights." data-fr="Utilisation des données de course pour extraire des insights stratégiques.">Used race data to extract strategic insights.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="bg-neo-black text-white px-2 py-1">Python</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Pandas</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Matplotlib</span>
+                        <span class="bg-neo-black text-white px-2 py-1">Seaborn</span>
+                        <span class="bg-neo-black text-white px-2 py-1">OpenF1 API</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        const hoverElements = document.querySelectorAll('.cursor-hover, a, button');
+        const langEnButton = document.getElementById('lang-en');
+        const langFrButton = document.getElementById('lang-fr');
+        const themeToggle = document.getElementById('theme-toggle');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.transform = 'translate(-50%, -50%)';
+        });
+
+        hoverElements.forEach((el) => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '60px';
+                cursor.style.height = '60px';
+                cursor.style.backgroundColor = '#FF4FA3';
+                cursor.style.mixBlendMode = 'normal';
+                cursor.style.border = '2px solid black';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '24px';
+                cursor.style.height = '24px';
+                cursor.style.backgroundColor = '#fff';
+                cursor.style.mixBlendMode = document.body.classList.contains('dark-mode') ? 'normal' : 'difference';
+                cursor.style.border = document.body.classList.contains('dark-mode') ? '2px solid black' : 'none';
+            });
+        });
+
+        function updateThemeToggleLabel(lang) {
+            if (!themeToggle) return;
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            const attr = isDarkMode ? `data-theme-dark-${lang}` : `data-theme-light-${lang}`;
+            const value = themeToggle.getAttribute(attr);
+            if (value !== null) {
+                themeToggle.innerHTML = `<i class="${value}"></i>`;
+            }
+        }
+
+        function setTheme(mode) {
+            const isDarkMode = mode === 'dark';
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            localStorage.setItem('zineb-theme', isDarkMode ? 'dark' : 'light');
+            cursor.style.backgroundColor = '#fff';
+            cursor.style.mixBlendMode = isDarkMode ? 'normal' : 'difference';
+            cursor.style.border = isDarkMode ? '2px solid black' : 'none';
+            const currentLang = document.documentElement.lang === 'fr' ? 'fr' : 'en';
+            updateThemeToggleLabel(currentLang);
+        }
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
+            document.querySelectorAll('[data-en][data-fr]').forEach((node) => {
+                const value = node.getAttribute(`data-${lang}`);
+                if (value !== null) node.innerHTML = value;
+            });
+
+            updateThemeToggleLabel(lang);
+
+            if (lang === 'fr') {
+                langFrButton.className = 'px-3 py-2 bg-neo-blue text-black border-2 border-black font-mono font-black cursor-hover';
+                langEnButton.className = 'px-3 py-2 bg-white text-black border-2 border-black font-mono font-black cursor-hover';
+            } else {
+                langEnButton.className = 'px-3 py-2 bg-neo-blue text-black border-2 border-black font-mono font-black cursor-hover';
+                langFrButton.className = 'px-3 py-2 bg-white text-black border-2 border-black font-mono font-black cursor-hover';
+            }
+        }
+
+        langEnButton.addEventListener('click', () => setLanguage('en'));
+        langFrButton.addEventListener('click', () => setLanguage('fr'));
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const nextMode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+                setTheme(nextMode);
+            });
+        }
+        const savedTheme = localStorage.getItem('zineb-theme');
+        setTheme(savedTheme === 'dark' ? 'dark' : 'light');
+        setLanguage('en');
+    </script>
+</body>
+
+</html>
