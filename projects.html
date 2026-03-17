@@ -276,8 +276,7 @@
                 </div>
             </article>
 
-            <article id="recommender-systems" class="border-4 border-black bg-white shadow-hard overflow-hidden">
-                <img src="Assets/images/vitravelbuddy.png" alt="Recommender Systems" class="w-full aspect-video object-cover border-b-4 border-black">
+            <article id="recommender-systems" class="border-4 border-black bg-white shadow-hard overflow-hidden self-start">
                 <div class="p-6">
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
@@ -310,6 +309,12 @@
                         <span class="bg-neo-black text-white px-2 py-1">Pandas</span>
                         <span class="bg-neo-black text-white px-2 py-1">scikit-learn</span>
                         <span class="bg-neo-black text-white px-2 py-1">Apriori</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3 mt-5">
+                        <a href="https://colab.research.google.com/drive/11-NuyBVgJnwdHeOe4T6vg2ZFvBQXn2NZ?usp=sharing#scrollTo=20914f63" target="_blank" class="inline-flex items-center gap-2 border-2 border-black bg-neo-blue px-4 py-2 font-mono font-black uppercase shadow-hard-sm hover:bg-white transition-all">
+                            <i class="ri-external-link-line"></i>
+                            <span data-en="Colab Notebook" data-fr="Notebook Colab">Colab Notebook</span>
+                        </a>
                     </div>
                 </div>
             </article>
@@ -354,44 +359,6 @@
                         <span class="bg-neo-black text-white px-2 py-1">YOLOv8</span>
                         <span class="bg-neo-black text-white px-2 py-1">FaceNet</span>
                         <span class="bg-neo-black text-white px-2 py-1">ViroReact</span>
-                    </div>
-                </div>
-            </article>
-
-            <article id="churn-analysis" class="border-4 border-black bg-white shadow-hard overflow-hidden">
-                <img src="Assets/images/mindcare.png" alt="Churn Analysis" class="w-full aspect-video object-cover border-b-4 border-black">
-                <div class="p-6">
-                    <div class="flex items-start justify-between gap-4 mb-4">
-                        <div>
-                            <p class="font-mono text-xs uppercase tracking-[0.25em] text-neo-orange" data-en="BUSINESS + DATA" data-fr="BUSINESS + DATA">BUSINESS + DATA</p>
-                            <h2 class="text-3xl font-black uppercase">Churn Analysis</h2>
-                        </div>
-                        <span class="border-2 border-black bg-neo-orange px-3 py-1 font-mono text-xs font-bold uppercase">Feb 2025</span>
-                    </div>
-                    <p class="font-mono text-sm text-gray-700 mb-4" data-en="Customer churn and retention analysis based on exploratory analysis, segmentation, and business recommendations." data-fr="Analyse du churn client et de la rétention basée sur l'analyse exploratoire, la segmentation et des recommandations business.">Customer churn and retention analysis based on exploratory analysis, segmentation, and business recommendations.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 font-mono text-xs">
-                        <div class="border-2 border-black p-3 bg-neo-blue/15">
-                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Context" data-fr="Contexte">Context</p>
-                            <p class="font-bold" data-en="Business dataset focused on understanding customer churn drivers." data-fr="Jeu de données business centré sur la compréhension des facteurs de churn client.">Business dataset focused on understanding customer churn drivers.</p>
-                        </div>
-                        <div class="border-2 border-black p-3 bg-neo-yellow/30">
-                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Role" data-fr="Rôle">Role</p>
-                            <p class="font-bold" data-en="Performed exploratory analysis, segmentation, and retention prioritization." data-fr="Réalisation d'analyses exploratoires, de segmentation et de priorisation de la rétention.">Performed exploratory analysis, segmentation, and retention prioritization.</p>
-                        </div>
-                        <div class="border-2 border-black p-3 bg-neo-pink/15">
-                            <p class="uppercase tracking-[0.2em] text-gray-500 mb-2" data-en="Outcome" data-fr="Résultat">Outcome</p>
-                            <p class="font-bold" data-en="Delivered retention recommendations tied to measurable business impact." data-fr="Livraison de recommandations de rétention liées à un impact business mesurable.">Delivered retention recommendations tied to measurable business impact.</p>
-                        </div>
-                    </div>
-                    <ul class="font-mono text-sm space-y-2 mb-5">
-                        <li data-en="Quantified the impact of engagement, tenure, and usage patterns." data-fr="Quantification de l'impact de l'engagement, de l'ancienneté et des schémas d'usage.">Quantified the impact of engagement, tenure, and usage patterns.</li>
-                        <li data-en="Prioritized retention actions based on potential business impact." data-fr="Priorisation des actions de rétention selon leur impact business potentiel.">Prioritized retention actions based on potential business impact.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
-                        <span class="bg-neo-black text-white px-2 py-1">Python</span>
-                        <span class="bg-neo-black text-white px-2 py-1">NumPy</span>
-                        <span class="bg-neo-black text-white px-2 py-1">SQL</span>
-                        <span class="bg-neo-black text-white px-2 py-1">Data Viz</span>
                     </div>
                 </div>
             </article>
@@ -570,7 +537,8 @@
             });
         }
         const savedTheme = localStorage.getItem('zineb-theme');
-        setTheme(savedTheme === 'dark' ? 'dark' : 'light');
+        const browserPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(savedTheme ? savedTheme : (browserPrefersDark ? 'dark' : 'light'));
         setLanguage('en');
     </script>
 </body>
