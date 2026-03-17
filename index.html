@@ -190,6 +190,66 @@
             transform: translateY(0);
         }
 
+        .view-more-cta {
+            position: relative;
+        }
+
+        .view-more-cta.active {
+            animation: ctaNudge 1.15s cubic-bezier(0.22, 1, 0.36, 1) 2;
+        }
+
+        .view-more-cta::after {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border: 2px dashed #000;
+            opacity: 0;
+            transform: scale(0.96);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            pointer-events: none;
+        }
+
+        .view-more-cta.active::after,
+        .view-more-cta:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .micro-toast {
+            opacity: 0;
+            transform: translate(-50%, 16px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            pointer-events: none;
+        }
+
+        .micro-toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        @keyframes ctaNudge {
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            20% {
+                transform: translateY(-6px) scale(1.04);
+            }
+
+            40% {
+                transform: translateX(8px) scale(1.04);
+            }
+
+            60% {
+                transform: translateY(-4px) scale(1.02);
+            }
+
+            80% {
+                transform: translateX(-4px) scale(1.03);
+            }
+        }
+
         .checkpoint-entry {
             opacity: 0;
             transform: translateY(32px);
@@ -410,6 +470,10 @@
             text-shadow: 4px 4px 0 rgba(2, 6, 23, 1) !important;
         }
 
+        body.dark-mode .hero-software {
+            color: #45C2FF !important;
+        }
+
         /* Glitch Effect on Hover */
         .glitch-hover:hover {
             animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
@@ -507,12 +571,12 @@
             <div
                 class="inline-block bg-neo-white border-2 border-black px-4 py-1 mb-6 shadow-hard rotate-[-2deg] reveal">
                 <span class="font-mono font-bold text-neo-green bg-black px-2 mr-2">●</span>
-                <span class="font-mono font-bold" data-en="SHIPPING + LOOKING FOR NEW GRAD 2026" data-fr="EN PRODUCTION + A LA RECHERCHE D'UN POSTE 2026">SHIPPING + LOOKING FOR NEW GRAD 2026</span>
+                <span class="font-mono font-bold" data-en="NEW GRAD 2026" data-fr="NEW GRAD 2026">NEW GRAD 2026</span>
             </div>
 
             <h1
                 class="text-[11vw] md:text-[8vw] leading-[0.82] font-black uppercase tracking-tighter mb-5 reveal mix-blend-darken">
-                <span data-en="SOFTWARE" data-fr="INGENIEURE">SOFTWARE</span><br>
+                <span class="hero-software" data-en="SOFTWARE" data-fr="INGENIEURE">SOFTWARE</span><br>
                 <span class="text-white text-stroke-black" style="-webkit-text-stroke: 3px black;" data-en="ENGINEER" data-fr="LOGICIEL">ENGINEER</span>
             </h1>
 
@@ -523,6 +587,12 @@
                 I build data-driven products, AI systems, full-stack applications, and stakeholder-ready technical solutions. <br>
                 <b>Data • AI • Full-Stack • Product / Solution Engineering</b>
             </p>
+
+            <a href="mailto:zineb.alaoui663@gmail.com"
+                class="inline-flex items-center gap-2 font-mono font-bold text-sm md:text-base mb-8 bg-white border-2 border-black px-4 py-2 shadow-hard hover:bg-neo-blue hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover reveal">
+                <i class="ri-mail-line text-lg"></i>
+                <span>zineb.alaoui663@gmail.com</span>
+            </a>
 
             <div class="flex flex-col md:flex-row justify-center gap-4 reveal">
                 <a href="#projects"
@@ -549,8 +619,8 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div class="md:col-span-4 reveal">
                 <div class="aspect-square bg-gray-200 border-4 border-black relative shadow-hard overflow-hidden group">
-                    <img src="Assets/images/custom_logo.png" alt="Zineb Alaoui logo"
-                        class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-300">
+                    <img src="Assets/images/me.png" alt="Zineb Alaoui portrait"
+                        class="w-full h-full object-cover transition-all duration-300">
                     <span
                         class="absolute top-2 left-2 bg-neo-red text-white px-2 font-mono text-xs border border-black z-10">ME.PNG</span>
                 </div>
@@ -584,22 +654,22 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-sm font-bold">
-                    <div
-                        class="bg-white border-2 border-black p-3 hover:bg-neo-blue hover:text-white transition-colors">
+                    <button type="button" data-not-clickable
+                        class="bg-white border-2 border-black p-3 text-left hover:bg-neo-blue hover:text-white transition-colors cursor-hover">
                         <span data-en="> SOLUTION_ENGINEERING" data-fr="> SOLUTION_ENGINEERING">> SOLUTION_ENGINEERING</span>
-                    </div>
-                    <div
-                        class="bg-white border-2 border-black p-3 hover:bg-neo-pink hover:text-white transition-colors">
+                    </button>
+                    <button type="button" data-not-clickable
+                        class="bg-white border-2 border-black p-3 text-left hover:bg-neo-pink hover:text-white transition-colors cursor-hover">
                         <span data-en="> DATA_AND_AI" data-fr="> DATA_ET_IA">> DATA_AND_AI</span>
-                    </div>
-                    <div
-                        class="bg-white border-2 border-black p-3 hover:bg-neo-yellow hover:text-black transition-colors">
+                    </button>
+                    <button type="button" data-not-clickable
+                        class="bg-white border-2 border-black p-3 text-left hover:bg-neo-yellow hover:text-black transition-colors cursor-hover">
                         <span data-en="> FULL_STACK_BUILDING" data-fr="> DEVELOPPEMENT_FULL_STACK">> FULL_STACK_BUILDING</span>
-                    </div>
-                    <div
-                        class="bg-white border-2 border-black p-3 hover:bg-neo-green hover:text-black transition-colors">
+                    </button>
+                    <button type="button" data-not-clickable
+                        class="bg-white border-2 border-black p-3 text-left hover:bg-neo-green hover:text-black transition-colors cursor-hover">
                         <span data-en="> PRODUCT_PROJECT_MINDSET" data-fr="> VISION_PRODUIT_PROJET">> PRODUCT_PROJECT_MINDSET</span>
-                    </div>
+                    </button>
                 </div>
             </div>
     </section>
@@ -963,13 +1033,9 @@
                                 <i class="ri-code-box-fill text-2xl text-neo-pink"></i>
                                 <div>
                                     <h4 class="text-lg font-black text-neo-black leading-tight">Zineb Alaoui</h4>
-                                    <p class="text-[10px] font-mono text-neo-pink uppercase tracking-widest">Solution
-                                        engineer in progress</p>
+                                    <p class="text-[10px] font-mono text-neo-pink uppercase tracking-widest"
+                                        data-en="New Grad 2026" data-fr="New Grad 2026">New Grad 2026</p>
                                 </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xl font-black text-neo-pink tracking-tighter">2026</div>
-                                <p class="text-[8px] font-mono text-gray-600 uppercase" data-en="Grad Year" data-fr="Diplôme">Grad Year</p>
                             </div>
                         </div>
 
@@ -981,32 +1047,23 @@
                                 </div>
                                 <div class="p-3 md:p-4 space-y-2.5 font-mono">
                                     <div class="border-2 border-black p-2.5 bg-neo-blue/15">
-                                        <p class="text-[10px] uppercase tracking-[0.25em] text-neo-blue mb-2" data-en="Focus" data-fr="Focus">Focus</p>
-                                        <p class="text-neo-black font-bold" data-en="Data, AI systems, full-stack development, and solution engineering." data-fr="Data, systèmes d'IA, développement full-stack et solution engineering.">Data, AI systems, full-stack development, and solution engineering.</p>
+                                        <p class="text-neo-black font-bold"
+                                            data-en="Data, AI, full-stack, and solution engineering."
+                                            data-fr="Data, IA, full-stack et solution engineering.">Data, AI, full-stack, and solution engineering.</p>
                                     </div>
-                                    <div class="border-2 border-black p-2.5 bg-neo-yellow/35">
-                                        <p class="text-[10px] uppercase tracking-[0.25em] text-neo-orange mb-3" data-en="Featured Impact" data-fr="Impact Clé">Featured Impact</p>
-                                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                                            <div class="border-2 border-black bg-white p-1.5">
-                                                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-1" data-en="Revenue" data-fr="Revenus">Revenue</p>
-                                                <p class="text-base font-black text-neo-black">$200K+</p>
-                                                <p class="text-[11px] text-neo-black font-bold" data-en="influenced through client-facing demos" data-fr="influencés via des démos orientées client">influenced through client-facing demos</p>
-                                            </div>
-                                            <div class="border-2 border-black bg-white p-1.5">
-                                                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-1" data-en="Recovery" data-fr="Récupéré">Recovery</p>
-                                                <p class="text-base font-black text-neo-black">$50K</p>
-                                                <p class="text-[11px] text-neo-black font-bold" data-en="identified in overcharged invoices" data-fr="identifiés en surfacturation">identified in overcharged invoices</p>
-                                            </div>
-                                            <div class="border-2 border-black bg-white p-1.5">
-                                                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-1" data-en="Workflow" data-fr="Workflow">Workflow</p>
-                                                <p class="text-base font-black text-neo-black">20h → 1.5h</p>
-                                                <p class="text-[11px] text-neo-black font-bold" data-en="processing time reduced" data-fr="temps de traitement réduit">processing time reduced</p>
-                                            </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                        <div class="border-2 border-black bg-neo-yellow/35 p-2">
+                                            <p class="text-lg font-black text-neo-black">$200K+</p>
+                                            <p class="text-[11px] text-neo-black font-bold" data-en="client demo revenue influence" data-fr="impact revenu via démos client">client demo revenue influence</p>
                                         </div>
-                                    </div>
-                                    <div class="border-2 border-black p-2.5 bg-neo-pink/20">
-                                        <p class="text-[10px] uppercase tracking-[0.25em] text-neo-pink mb-2" data-en="Stack" data-fr="Stack">Stack</p>
-                                        <p class="text-neo-black font-bold" data-en="React, Python, Java, SQL, Spring Boot, Docker, Firebase, and analytics tooling." data-fr="React, Python, Java, SQL, Spring Boot, Docker, Firebase et outils d'analyse.">React, Python, Java, SQL, Spring Boot, Docker, Firebase, and analytics tooling.</p>
+                                        <div class="border-2 border-black bg-neo-pink/20 p-2">
+                                            <p class="text-lg font-black text-neo-black">$50K</p>
+                                            <p class="text-[11px] text-neo-black font-bold" data-en="invoice recovery identified" data-fr="surfacturation identifiée">invoice recovery identified</p>
+                                        </div>
+                                        <div class="border-2 border-black bg-neo-green/25 p-2">
+                                            <p class="text-lg font-black text-neo-black">20h → 1.5h</p>
+                                            <p class="text-[11px] text-neo-black font-bold" data-en="workflow time reduced" data-fr="temps réduit">workflow time reduced</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1245,7 +1302,7 @@
 
             <div class="text-center mt-12">
                 <a href="projects.html"
-                    class="inline-block bg-neo-black text-white px-8 py-4 font-bold font-mono text-lg hover:bg-neo-white hover:text-black border-4 border-black transition-all shadow-hard hover:shadow-none cursor-hover">
+                    class="view-more-cta reveal inline-block bg-neo-black text-white px-12 md:px-16 py-5 md:py-6 font-bold font-mono text-xl md:text-2xl tracking-wide hover:bg-neo-white hover:text-black border-4 border-black transition-all shadow-hard hover:shadow-none cursor-hover">
                     <span data-en="VIEW MORE" data-fr="VOIR PLUS">VIEW MORE</span>
                 </a>
             </div>
@@ -1361,7 +1418,11 @@
                         <p class="font-mono text-lg mb-8 text-gray-700">
                             <span data-en="I am looking for new grad 2026 opportunities across data, AI, full-stack development, project / product-facing solution engineering, and consulting, and I am open to working anywhere in the world." data-fr="Je recherche des opportunités de début de carrière 2026 en data, IA, développement full-stack, solution engineering orienté projet / produit et conseil, et je suis ouverte à travailler partout dans le monde.">I am looking for new grad 2026 opportunities across data, AI, full-stack development, project / product-facing solution engineering, and consulting, and I am open to working anywhere in the world.</span>
                         </p>
+                    </div>
 
+                    <div class="border-4 border-black p-6 bg-white shadow-hard relative">
+                        <p class="font-mono font-bold text-xs uppercase tracking-[0.3em] text-neo-blue mb-4"
+                            data-en="DIRECT LINKS" data-fr="LIENS DIRECTS">DIRECT LINKS</p>
                         <div class="space-y-6 font-mono font-bold">
                             <a href="mailto:zineb.alaoui663@gmail.com"
                                 class="flex items-center gap-4 hover:text-neo-blue transition-colors group">
@@ -1379,6 +1440,14 @@
                                 </div>
                                 <span>linkedin.com/in/zineb-alaouii</span>
                             </a>
+                            <a href="https://github.com/Zineb2a" target="_blank"
+                                class="flex items-center gap-4 hover:text-neo-green transition-colors group">
+                                <div
+                                    class="w-12 h-12 bg-black text-white flex items-center justify-center group-hover:bg-neo-green group-hover:text-black transition-colors">
+                                    <i class="ri-github-fill text-xl"></i>
+                                </div>
+                                <span>github.com/Zineb2a</span>
+                            </a>
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 bg-black text-white flex items-center justify-center">
                                     <i class="ri-map-pin-line text-xl"></i>
@@ -1386,43 +1455,6 @@
                                 <span data-en="Montreal, Canada" data-fr="Montréal, Canada">Montreal, Canada</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Contact Form -->
-                    <div class="border-4 border-black p-6 bg-white shadow-hard relative">
-                        <form action="mailto:zineb.alaoui663@gmail.com" method="POST" enctype="text/plain" class="space-y-6">
-                            <!-- Hidden honeypot field for spam protection -->
-                            <input type="text" name="_gotcha" style="display:none">
-
-                            <div>
-                                <label
-                                    class="block font-mono font-bold mb-2 uppercase text-xs tracking-wider" data-en="Identity" data-fr="Identité">Identity</label>
-                                <input type="text" name="name" placeholder="NAME / COMPANY" data-en-placeholder="NAME / COMPANY" data-fr-placeholder="NOM / ENTREPRISE" required
-                                    class="w-full bg-white border-2 border-black p-4 font-mono focus:outline-none focus:bg-neo-blue focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all placeholder:text-gray-400">
-                            </div>
-
-                            <div>
-                                <label
-                                    class="block font-mono font-bold mb-2 uppercase text-xs tracking-wider" data-en="Coordinates" data-fr="Coordonnées">Coordinates</label>
-                                <input type="email" name="email" placeholder="EMAIL ADDRESS" data-en-placeholder="EMAIL ADDRESS" data-fr-placeholder="ADRESSE EMAIL" required
-                                    class="w-full bg-white border-2 border-black p-4 font-mono focus:outline-none focus:bg-neo-blue focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all placeholder:text-gray-400">
-                            </div>
-
-                            <div>
-                                <label
-                                    class="block font-mono font-bold mb-2 uppercase text-xs tracking-wider" data-en="Transmission" data-fr="Message">Transmission</label>
-                                <textarea name="message" rows="4" placeholder="PROJECT DETAILS..." data-en-placeholder="PROJECT DETAILS..." data-fr-placeholder="DETAILS DU PROJET..." required
-                                    class="w-full bg-white hover:bg-neo-blue border-2 border-black p-4 font-mono focus:outline-none focus:bg-neo-blue focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all placeholder:text-gray-600 font-bold"></textarea>
-                            </div>
-
-                            <button type="submit"
-                                class="w-full bg-neo-blue text-white font-black uppercase py-4 border-2 border-black shadow-hard hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
-                                data-en="Transmit Data" data-fr="Envoyer">
-                                Transmit Data
-                            </button>
-                        </form>
-
-                        <!-- Decorative element -->
                         <div class="absolute -right-3 bottom-12 w-3 h-3 bg-black rounded-full"></div>
                     </div>
                 </div>
@@ -1485,6 +1517,11 @@
             ZINEB
         </div>
     </footer>
+
+    <div id="micro-toast"
+        class="micro-toast fixed left-1/2 bottom-6 z-[70] bg-white border-2 border-black px-4 py-2 shadow-hard font-mono text-xs md:text-sm font-bold uppercase">
+        <span data-en="NOT CLICKABLE" data-fr="PAS CLIQUABLE">NOT CLICKABLE</span>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/svgmap/dist/svgMap.min.js"></script>
     <script>
@@ -1586,8 +1623,11 @@
         const langFrButton = document.getElementById('lang-fr');
         const themeToggle = document.getElementById('theme-toggle');
         const heroEasterEgg = document.getElementById('hero-easter-egg');
+        const microToast = document.getElementById('micro-toast');
+        const notClickableItems = document.querySelectorAll('[data-not-clickable]');
         let visitedMapInstance = null;
         let heroEasterEggState = 0;
+        let microToastTimer = null;
         const heroEasterEggStates = [
             { bg: 'bg-neo-blue', shape: 'rounded-none', rotate: 'rotate-12', scale: 'scale-100' },
             { bg: 'bg-neo-pink', shape: 'rounded-full', rotate: '-rotate-6', scale: 'scale-110' },
@@ -1762,6 +1802,18 @@
                 heroEasterEgg.classList.add(nextState.bg, nextState.shape, nextState.rotate, nextState.scale);
 
                 heroEasterEggState = (heroEasterEggState + 1) % heroEasterEggStates.length;
+            });
+        }
+
+        if (microToast && notClickableItems.length) {
+            notClickableItems.forEach((item) => {
+                item.addEventListener('click', () => {
+                    microToast.classList.add('show');
+                    window.clearTimeout(microToastTimer);
+                    microToastTimer = window.setTimeout(() => {
+                        microToast.classList.remove('show');
+                    }, 1100);
+                });
             });
         }
 
