@@ -486,6 +486,422 @@
             color: #020617 !important;
         }
 
+        /* Hero: editorial hierarchy within the existing neo-brutalist palette. */
+        #hero {
+            min-height: min(900px, 100svh);
+            padding: 104px 24px 32px;
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero .hero-composition {
+            width: 100%;
+            max-width: 1240px;
+            position: relative;
+            text-align: center;
+        }
+
+        #hero .hero-content { position: relative; z-index: 1; }
+        #hero .hero-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            color: #121212;
+        }
+
+        #hero h1 {
+            margin: 28px 0 24px;
+            font-size: clamp(64px, min(11.5vw, 18svh), 160px);
+            line-height: 0.87;
+            letter-spacing: -0.055em;
+        }
+
+        #hero .hero-outline {
+            display: inline-block;
+            margin-top: 10px;
+            color: #FFFDFC;
+            -webkit-text-stroke: 3px #121212;
+        }
+
+        #hero .hero-description {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 18px 24px;
+            background: #FFE600;
+            color: #121212;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0 #000;
+            font-size: clamp(20px, 2vw, 26px);
+            font-weight: 500;
+            line-height: 1.45;
+            letter-spacing: -0.025em;
+            text-wrap: pretty;
+        }
+
+        #hero .hero-proof {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px 10px;
+            margin: 20px auto 0;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #51454d;
+        }
+
+        #hero .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 24px 0 10px;
+        }
+
+        #hero .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 56px;
+            padding: 14px 28px;
+            font-size: 15px;
+        }
+
+        #hero .hero-email {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            font-size: 12px;
+            text-underline-offset: 5px;
+            color: #645760;
+        }
+
+        #hero a:focus-visible, #hero button:focus-visible {
+            outline: 3px solid #FF4FA3;
+            outline-offset: 7px;
+        }
+
+        #hero .hero-square {
+            position: absolute;
+            left: 2%;
+            top: 155px;
+            width: 64px;
+            height: 64px;
+            z-index: 2;
+        }
+
+        #hero .hero-circle {
+            position: absolute;
+            right: 1%;
+            top: 65px;
+            width: 100px;
+            height: 100px;
+        }
+
+        html[lang="fr"] #hero h1 { font-size: clamp(52px, min(9.3vw, 16svh), 128px); }
+        /* Keep dark mode warm, graphic and readable, with the same ink borders. */
+        body.dark-mode #hero {
+            color: #FFFDFC;
+            background-color: #1b171e;
+            background-image:
+                radial-gradient(rgba(255, 79, 163, 0.24) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255, 79, 163, 0.09) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 79, 163, 0.09) 1px, transparent 1px);
+            background-size: 40px 40px, 100px 100px, 100px 100px;
+            border-bottom-color: #000 !important;
+        }
+
+        body.dark-mode #hero .hero-software { color: #FFFDFC !important; }
+        body.dark-mode #hero .hero-outline {
+            color: transparent;
+            -webkit-text-stroke-color: #45C2FF;
+        }
+
+        body.dark-mode #hero .hero-description { color: #121212; }
+        body.dark-mode #hero .hero-proof { color: #d7cbd3; }
+        body.dark-mode #hero .hero-email { color: #bbaeb8; }
+        body.dark-mode #hero .hero-email:hover { color: #FFFDFC; }
+
+        body.dark-mode #hero .hero-status,
+        body.dark-mode #hero .hero-square,
+        body.dark-mode #hero .hero-circle {
+            border-color: #000 !important;
+            box-shadow: 5px 5px 0 #000 !important;
+        }
+
+        body.dark-mode #hero .hero-cta {
+            border-color: #000 !important;
+            box-shadow: 4px 4px 0 #000 !important;
+        }
+
+        body.dark-mode #hero .hero-cta-primary {
+            background: #000 !important;
+            color: #FFFDFC !important;
+            border-color: #FFFDFC !important;
+            box-shadow: 4px 4px 0 #45C2FF !important;
+        }
+
+        body.dark-mode #hero .hero-cta-secondary {
+            background: #FFFDFC !important;
+            color: #121212 !important;
+        }
+
+        body.dark-mode #hero .hero-cta-primary:hover {
+            background: #45C2FF !important;
+            border-color: #000 !important;
+            color: #121212 !important;
+        }
+
+        body.dark-mode #hero .hero-cta-secondary:hover { background: #FFE600 !important; }
+        body.dark-mode #hero .hero-cta:hover { box-shadow: none !important; }
+
+        @media (max-width: 1023px) {
+            #hero .hero-square { left: 1%; top: 18px; width: 40px; height: 40px; }
+            #hero .hero-circle { right: 1%; top: 10px; width: 54px; height: 54px; }
+        }
+
+        @media (max-width: 600px) {
+            #hero { min-height: 100svh; padding: 112px 20px 24px; }
+            #hero .hero-status { font-size: 10px; padding: 8px 10px; gap: 7px; }
+            #hero h1 { font-size: 15.4vw; margin: 26px 0 22px; }
+            html[lang="fr"] #hero h1 { font-size: 13.4vw; }
+            #hero .hero-outline { -webkit-text-stroke-width: 2px; margin-top: 8px; }
+            #hero .hero-description { max-width: 360px; padding: 16px; font-size: 20px; }
+            #hero .hero-proof { max-width: 350px; font-size: 11px; gap: 3px 6px; margin-top: 18px; }
+            #hero .hero-proof .hero-proof-break { display: none; }
+            #hero .hero-proof .hero-award { flex-basis: 100%; }
+            #hero .hero-actions { gap: 12px; margin-top: 26px; margin-bottom: 14px; }
+            #hero .hero-cta { padding: 12px 18px; min-height: 52px; font-size: 13px; }
+            #hero .hero-email { font-size: 11px; }
+            #hero .hero-square { left: 0; top: -26px; width: 26px; height: 26px; border-width: 2px; }
+            #hero .hero-circle { right: 0; top: -24px; width: 34px; height: 34px; border-width: 2px; }
+        }
+
+        /* Fit the first-screen actions on laptops and shorter phones. */
+        @media (max-height: 800px) {
+            #hero { padding-top: 100px; padding-bottom: 20px; }
+            #hero h1 { font-size: min(11.5vw, 14.5svh); margin: 20px 0 18px; }
+            html[lang="fr"] #hero h1 { font-size: min(9.3vw, 13svh); }
+            #hero .hero-description { padding: 12px 20px; font-size: 20px; }
+            #hero .hero-proof { margin-top: 14px; }
+            #hero .hero-actions { margin: 18px 0 6px; }
+            #hero .hero-cta { min-height: 52px; padding-top: 12px; padding-bottom: 12px; }
+            #hero .hero-email { min-height: 36px; }
+        }
+
+        @media (max-height: 800px) and (max-width: 600px) {
+            #hero { padding-top: 108px; }
+            #hero h1 { font-size: min(15.4vw, 11svh); }
+            html[lang="fr"] #hero h1 { font-size: min(13.4vw, 10svh); }
+            #hero .hero-description { padding: 12px 14px; font-size: 18px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #hero a, #hero button { transition: none !important; }
+        }
+
+        /* Impact: one editorial spread, with a distinct hierarchy for each result. */
+        #impact {
+            padding: 72px 24px 80px;
+            border-bottom: 4px solid #000;
+            color: #121212;
+        }
+        #impact .impact-inner { max-width: 1240px; margin: 0 auto; }
+        #impact .impact-heading {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            margin-bottom: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        #impact .impact-title { font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.055em; }
+        #impact .impact-subtitle { font-size: 14px; letter-spacing: 0.04em; }
+        #impact .impact-spread {
+            display: grid;
+            grid-template-columns: 5fr 4fr 3fr;
+            border: 3px solid #000;
+            box-shadow: 8px 8px 0 #000;
+            background: #FFFDFC;
+        }
+        #impact .impact-metric {
+            min-width: 0;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        #impact .impact-source {
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        #impact .impact-number {
+            display: block;
+            font-size: clamp(52px, 5.8vw, 80px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.065em;
+            white-space: nowrap;
+        }
+        #impact .impact-label { margin-top: 12px; font-size: 17px; font-weight: 500; line-height: 1.4; }
+        #impact .impact-revenue { grid-row: span 2; background: #FFE600; border-right: 3px solid #000; }
+        #impact .impact-revenue .impact-number { font-size: clamp(76px, 8vw, 112px); }
+        #impact .impact-revenue .impact-result { margin: auto 0; }
+        #impact .impact-billing { grid-column: span 2; border-bottom: 3px solid #000; }
+        #impact .impact-time { display: flex; align-items: baseline; gap: 16px; white-space: nowrap; }
+        #impact .impact-before { font-size: 0.64em; letter-spacing: -0.04em; }
+        #impact .impact-arrow { font-size: 0.55em; font-weight: 500; }
+        #impact .impact-after { background: #45C2FF; padding: 0 8px 4px; border: 2px solid #000; box-shadow: 3px 3px 0 #000; }
+        #impact .impact-claims { border-right: 3px solid #000; }
+        #impact .impact-claims .impact-number { width: fit-content; box-shadow: inset 0 -10px #FF4FA3; }
+        #impact .impact-award { background: #FF4FA3; }
+        #impact .impact-award .impact-number { font-size: clamp(48px, 5vw, 68px); }
+        #impact .impact-place { display: block; margin-top: 5px; font-size: 0.43em; letter-spacing: -0.025em; }
+        #impact .impact-result { transition: transform 180ms ease; }
+        @media (hover: hover) {
+            #impact .impact-metric:hover .impact-result { transform: translateY(-3px); }
+        }
+        body.dark-mode #impact { color: #FFFDFC; }
+        body.dark-mode #impact .impact-spread { color: #121212; }
+        body.dark-mode #impact .impact-billing,
+        body.dark-mode #impact .impact-claims { background: #241e27; color: #FFFDFC; }
+        body.dark-mode #impact .impact-after { color: #121212; }
+        body.dark-mode #impact .impact-claims .impact-number { box-shadow: inset 0 -7px #a82665; }
+        @media (max-width: 900px) {
+            #impact .impact-spread { grid-template-columns: 1fr 1fr; }
+            #impact .impact-revenue { grid-row: auto; border-bottom: 3px solid #000; }
+            #impact .impact-billing { grid-column: auto; }
+            #impact .impact-revenue .impact-number { font-size: clamp(64px, 9vw, 86px); }
+            #impact .impact-number { font-size: clamp(44px, 6vw, 64px); }
+            #impact .impact-time { gap: 10px; }
+            #impact .impact-metric { padding: 24px; }
+        }
+        @media (max-width: 600px) {
+            #impact { padding: 44px 20px 52px; }
+            #impact .impact-heading { gap: 10px 14px; margin-bottom: 24px; }
+            #impact .impact-subtitle { font-size: 11px; }
+            #impact .impact-spread { grid-template-columns: 1fr; box-shadow: 5px 5px 0 #000; }
+            #impact .impact-metric { padding: 22px; gap: 20px; }
+            #impact .impact-revenue, #impact .impact-claims { border-right: 0; }
+            #impact .impact-claims { border-bottom: 3px solid #000; }
+            #impact .impact-revenue .impact-number { font-size: clamp(68px, 19vw, 100px); }
+            #impact .impact-number { font-size: clamp(48px, 15vw, 68px); }
+            #impact .impact-award .impact-number { font-size: 54px; }
+            #impact .impact-place { display: inline; margin-left: 8px; font-size: 0.6em; }
+            #impact .impact-label { font-size: 16px; margin-top: 10px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #impact .impact-result { transition: none; transform: none !important; }
+        }
+
+        /* Curated toolkit: featured technologies, supporting skills, optional depth. */
+        #skills {
+            --stack-ink: #121212;
+            --stack-paper: #FFFDFC;
+            --stack-accent: #45C2FF;
+            padding: 64px 24px;
+            color: var(--stack-ink);
+            border-top: 4px solid #000;
+            border-bottom: 4px solid #000;
+            background-color: #FFFDFC;
+            background-image: linear-gradient(#f0d6e6 1px, transparent 1px), linear-gradient(90deg, #f0d6e6 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+        #skills .stack-inner { max-width: 1240px; margin: 0 auto; }
+        #skills .stack-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+        #skills h2 { font-size: clamp(40px, 5vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -0.055em; }
+        #skills .stack-heading-note { font-size: 11px; letter-spacing: 0.06em; }
+        #skills .stack-tabs { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+        #skills .stack-tab-btn {
+            min-height: 48px;
+            padding: 12px 20px;
+            border: 2px solid #000;
+            background: var(--stack-paper);
+            color: var(--stack-ink);
+            box-shadow: 3px 3px 0 #000;
+            font-size: 13px;
+            font-weight: 700;
+            transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+        }
+        #skills .stack-tab-btn[aria-selected="true"] { background: var(--tab-color); color: #121212; transform: translate(3px, 3px); box-shadow: none; }
+        #skills .stack-tab-btn:hover { background: var(--tab-color); color: #121212; }
+        #skills button:focus-visible, #skills summary:focus-visible, #skills [role="tabpanel"]:focus-visible { outline: 3px solid #FF4FA3; outline-offset: 5px; }
+        #skills .stack-page[hidden] { display: none; }
+        #skills .stack-page { border: 3px solid #000; background: var(--stack-paper); box-shadow: 8px 8px 0 #000; }
+        #skills .stack-primary { display: grid; grid-template-columns: 1fr 1fr; }
+        #skills .stack-feature {
+            padding: 32px;
+            border-right: 3px solid #000;
+            background: var(--stack-accent);
+            color: #121212;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 28px;
+        }
+        #skills .stack-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; line-height: 1.5; }
+        #skills .stack-feature-list { display: flex; flex-direction: column; gap: 14px; }
+        #skills .stack-feature-item { display: flex; align-items: center; gap: 16px; font-size: clamp(32px, 3.3vw, 46px); font-weight: 700; letter-spacing: -0.05em; line-height: 1.12; }
+        #skills .stack-logo { width: 32px; height: 32px; object-fit: contain; flex: 0 0 auto; }
+        #skills .stack-feature .stack-logo { width: 38px; height: 38px; padding: 5px; background: #FFFDFC; border: 1px solid #000; }
+        #skills .stack-support { padding: 32px; display: flex; flex-direction: column; gap: 26px; }
+        #skills .stack-support-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; margin: auto 0; }
+        #skills .stack-support-item { display: flex; align-items: center; gap: 10px; min-height: 76px; border-bottom: 1px solid #bcaeb7; font-size: clamp(19px, 2vw, 26px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.25; padding: 14px 0; }
+        #skills .stack-support-item .stack-logo { width: 26px; height: 26px; }
+        #skills .stack-toolkit { border-top: 3px solid #000; }
+        #skills .stack-toolkit summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 60px; padding: 16px 28px; font-size: 12px; font-weight: 700; list-style: none; cursor: pointer; }
+        #skills .stack-toolkit summary::-webkit-details-marker { display: none; }
+        #skills .stack-toolkit summary:hover { background: var(--stack-accent); color: #121212; }
+        #skills .stack-toolkit summary::after { content: '+'; font-family: 'Space Grotesk', sans-serif; font-size: 26px; line-height: 1; }
+        #skills .stack-toolkit[open] summary::after { content: '−'; }
+        #skills .stack-collapse, #skills .stack-toolkit[open] .stack-expand { display: none; }
+        #skills .stack-toolkit[open] .stack-collapse { display: inline; }
+        #skills .stack-secondary { display: flex; flex-wrap: wrap; gap: 10px; padding: 4px 28px 24px; }
+        #skills .stack-secondary li { border: 1px solid #bcaeb7; padding: 7px 10px; font-size: 12px; line-height: 1.5; }
+        #skills .stack-meta { margin-top: 28px; font-size: 11px; line-height: 1.8; letter-spacing: 0.025em; }
+        body.dark-mode #skills { --stack-ink: #FFFDFC; --stack-paper: #241e27; background-color: #1b171e; background-image: linear-gradient(rgba(255,79,163,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,79,163,.1) 1px, transparent 1px); }
+        @media (max-width: 900px) {
+            #skills .stack-feature, #skills .stack-support { padding: 24px; }
+            #skills .stack-support-list { grid-template-columns: 1fr; }
+            #skills .stack-support-item { min-height: 48px; padding: 10px 0; font-size: 20px; }
+        }
+        @media (max-width: 600px) {
+            #skills { padding: 44px 20px 48px; }
+            #skills .stack-heading { margin-bottom: 24px; }
+            #skills .stack-heading-note { display: none; }
+            #skills .stack-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+            #skills .stack-tab-btn { padding: 12px 6px; font-size: 11px; }
+            #skills .stack-page { box-shadow: 5px 5px 0 #000; }
+            #skills .stack-primary { grid-template-columns: 1fr; }
+            #skills .stack-feature { padding: 20px; border-right: 0; border-bottom: 3px solid #000; gap: 18px; }
+            #skills .stack-feature-list { flex-direction: row; flex-wrap: wrap; gap: 12px 20px; }
+            #skills .stack-feature-item { font-size: 27px; gap: 8px; }
+            #skills .stack-feature .stack-logo { width: 28px; height: 28px; padding: 3px; }
+            #skills .stack-support { padding: 20px; gap: 10px; }
+            #skills .stack-support-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+            #skills .stack-support-item { font-size: 17px; gap: 6px; overflow-wrap: anywhere; }
+            #skills .stack-support-item .stack-logo { width: 20px; height: 20px; }
+            #skills .stack-toolkit summary { padding: 14px 20px; min-height: 56px; font-size: 11px; }
+            #skills .stack-secondary { padding: 4px 20px 20px; gap: 8px; }
+            #skills .stack-secondary li { max-width: 100%; overflow-wrap: anywhere; font-size: 11px; }
+            #skills .stack-meta { margin-top: 24px; font-size: 10px; }
+        }
+        @media (max-width: 360px) {
+            #skills .stack-support-item .stack-logo { display: none; }
+            #skills .stack-support-item { font-size: 16px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #skills .stack-tab-btn { transition: none; }
+        }
+
         /* Glitch Effect on Hover */
         .glitch-hover:hover {
             animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
@@ -536,7 +952,7 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center pointer-events-auto">
             <a href="#"
                 class="bg-neo-white border-2 border-black px-4 py-1 text-2xl font-black shadow-hard hover:bg-neo-blue transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none cursor-hover">
-                zineb.app
+                zineb-alaoui.com
             </a>
 
             <div class="flex gap-2 md:gap-3 bg-white border-2 border-black p-2 shadow-hard items-center">
@@ -569,50 +985,88 @@
         </div>
     </nav>
 
-    <section
-        class="min-h-screen flex flex-col justify-center items-center px-4 pt-20 relative overflow-hidden border-b-4 border-black">
-        <button id="hero-easter-egg" type="button"
-            class="absolute top-1/3 left-[10%] w-16 h-16 bg-neo-blue border-4 border-black shadow-hard animate-bounce hidden lg:block rotate-12 cursor-hover hover:rotate-0 transition-transform"
-            aria-label="Secret action">
-        </button>
-        <div
-            class="absolute bottom-1/3 right-[10%] w-24 h-24 bg-neo-pink rounded-full border-4 border-black shadow-hard hidden lg:block animate-pulse">
-        </div>
-        <div class="absolute top-20 right-20 text-7xl opacity-5 font-black select-none pointer-events-none">CODE</div>
-        <div class="relative z-10 text-center max-w-5xl">
-            <div
-                class="inline-block bg-neo-white border-2 border-black px-4 py-1 mb-6 shadow-hard rotate-[-2deg] reveal">
-                <span class="font-mono font-bold text-neo-green bg-black px-2 mr-2">●</span>
-                <span class="font-mono font-bold" data-en="NEW GRAD 2026" data-fr="NEW GRAD 2026">NEW GRAD 2026</span>
+    <section id="hero" class="border-b-4 border-black" aria-labelledby="hero-title">
+        <div class="hero-composition">
+            <button id="hero-easter-egg" type="button"
+                class="hero-square bg-neo-blue border-4 border-black shadow-hard rotate-12 cursor-hover"
+                aria-label="Change geometric shape">
+            </button>
+            <div class="hero-circle bg-neo-pink rounded-full border-4 border-black shadow-hard" aria-hidden="true"></div>
+
+            <div class="hero-content">
+                <div class="hero-status bg-neo-yellow border-2 border-black shadow-hard font-mono font-bold">
+                    <span aria-hidden="true">●</span>
+                    <span data-en="OPEN TO OPPORTUNITIES" data-fr="OUVERTE AUX OPPORTUNITÉS">OPEN TO OPPORTUNITIES</span>
+                </div>
+
+                <h1 id="hero-title" class="font-black uppercase">
+                    <span class="hero-software" data-en="SOFTWARE" data-fr="INGENIEURE">SOFTWARE</span><br>
+                    <span class="hero-outline" data-en="ENGINEER" data-fr="LOGICIEL">ENGINEER</span>
+                </h1>
+
+                <p class="hero-description"
+                    data-en="I build and ship production software — from full-stack systems to AI-powered products."
+                    data-fr="Je conçois et livre des logiciels en production — des systèmes full-stack aux produits propulsés par l’IA.">
+                    I build and ship production software — from full-stack systems to AI-powered products.
+                </p>
+                <p class="hero-proof font-mono">
+                    <span data-en="Coveo alum" data-fr="Ancienne de Coveo">Coveo alum</span>
+                    <span aria-hidden="true">·</span>
+                    <span data-en="B.Eng. with Distinction" data-fr="B. Ing. avec distinction">B.Eng. with Distinction</span>
+                    <span class="hero-proof-break" aria-hidden="true">·</span>
+                    <span class="hero-award" data-en="1st Place Hackathon Winner" data-fr="1re place en hackathon">1st Place Hackathon Winner</span>
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects"
+                        class="hero-cta hero-cta-primary bg-black text-white border-2 border-black font-bold shadow-hard hover:bg-neo-blue hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover"
+                        data-en="VIEW WORK" data-fr="VOIR LES PROJETS">VIEW WORK</a>
+                    <a href="mailto:zineb.alaoui663@gmail.com?subject=Resume%20request"
+                        class="hero-cta hero-cta-secondary bg-white border-2 border-black font-bold shadow-hard hover:bg-neo-yellow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover"
+                        title="Request my resume by email" data-en-title="Request my resume by email" data-fr-title="Demander mon CV par courriel"
+                        data-en="RESUME ↗" data-fr="CV ↗">RESUME ↗</a>
+                </div>
+                <a href="mailto:zineb.alaoui663@gmail.com"
+                    class="hero-email font-mono hover:underline cursor-hover">zineb.alaoui663@gmail.com</a>
             </div>
+        </div>
+    </section>
 
-            <h1
-                class="text-[11vw] md:text-[8vw] leading-[0.82] font-black uppercase tracking-tighter mb-5 reveal mix-blend-darken">
-                <span class="hero-software" data-en="SOFTWARE" data-fr="INGENIEURE">SOFTWARE</span><br>
-                <span class="text-white text-stroke-black" style="-webkit-text-stroke: 3px black;" data-en="ENGINEER" data-fr="LOGICIEL">ENGINEER</span>
-            </h1>
-
-            <p
-                class="font-mono text-base md:text-xl max-w-4xl mx-auto mb-8 bg-neo-yellow border-2 border-black p-3 md:p-4 shadow-hard reveal rotate-1"
-                data-en="I build data-driven products, AI systems, full-stack applications, and stakeholder-ready technical solutions. <br><b>Data • AI • Full-Stack • Product / Solution Engineering</b>"
-                data-fr="Je construis des produits pilotés par la donnée, des systèmes d'IA, des applications full-stack et des solutions techniques pensées pour les parties prenantes. <br><b>Data • IA • Full-Stack • Product / Solution Engineering</b>">
-                I build data-driven products, AI systems, full-stack applications, and stakeholder-ready technical solutions. <br>
-                <b>Data • AI • Full-Stack • Product / Solution Engineering</b>
-            </p>
-
-            <a href="mailto:zineb.alaoui663@gmail.com"
-                class="inline-flex items-center gap-2 font-mono font-bold text-sm md:text-base mb-8 bg-white border-2 border-black px-4 py-2 shadow-hard hover:bg-neo-blue hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover reveal">
-                <i class="ri-mail-line text-lg"></i>
-                <span>zineb.alaoui663@gmail.com</span>
-            </a>
-
-            <div class="flex flex-col md:flex-row justify-center gap-4 reveal">
-                <a href="#projects"
-                    class="bg-black text-white border-2 border-black px-8 py-4 text-lg font-bold shadow-hard hover:bg-neo-green hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover"
-                    data-en="VIEW WORK" data-fr="VOIR LES PROJETS">
-                    VIEW WORK
-                </a>
-                <!-- Resume Removed -->
+    <section id="impact" aria-labelledby="impact-heading">
+        <div class="impact-inner">
+            <h2 id="impact-heading" class="impact-heading">
+                <span class="impact-title">IMPACT</span>
+                <span class="impact-subtitle font-mono" data-en="/ IN NUMBERS" data-fr="/ EN CHIFFRES">/ IN NUMBERS</span>
+            </h2>
+            <div class="impact-spread">
+                <article class="impact-metric impact-revenue">
+                    <p class="impact-source font-mono">Coveo</p>
+                    <div class="impact-result">
+                        <h3 class="impact-number">$200K+</h3>
+                        <p class="impact-label" data-en="Revenue influenced" data-fr="Revenus influencés">Revenue influenced</p>
+                    </div>
+                </article>
+                <article class="impact-metric impact-billing">
+                    <p class="impact-source font-mono">Expert Shipping</p>
+                    <div class="impact-result">
+                        <h3 class="impact-number impact-time"><span class="impact-before">Avg 20h</span><span class="impact-arrow">→</span><span class="impact-after">1.5h</span></h3>
+                        <p class="impact-label" data-en="Billing processing time" data-fr="Temps de traitement de la facturation">Billing processing time</p>
+                    </div>
+                </article>
+                <article class="impact-metric impact-claims">
+                    <p class="impact-source font-mono">Expert Shipping</p>
+                    <div class="impact-result">
+                        <h3 class="impact-number">$85K</h3>
+                        <p class="impact-label" data-en="Overcharges identified &amp; claimed" data-fr="Surfacturations identifiées et réclamées">Overcharges identified &amp; claimed</p>
+                    </div>
+                </article>
+                <article class="impact-metric impact-award">
+                    <p class="impact-source font-mono">Bambuu</p>
+                    <div class="impact-result">
+                        <h3 class="impact-number"><span data-en="1ST" data-fr="1RE">1ST</span> <span class="impact-place">PLACE</span></h3>
+                        <p class="impact-label" data-en="FinTech Hackathon" data-fr="Hackathon FinTech">FinTech Hackathon</p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -643,140 +1097,113 @@
                 </h2>
                 <div class="space-y-4 font-mono text-lg md:text-xl leading-relaxed mb-6">
                     <p>
-                        <span data-en="I am " data-fr="Je suis ">I am </span><span
-                            class="about-name-highlight bg-neo-yellow font-bold px-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Zineb Alaoui</span>.
+                        <span data-en="I’m " data-fr="Moi, c’est ">I’m </span><span class="about-name-highlight bg-neo-yellow font-bold px-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Zineb</span><span
+                            data-en=". I like being somewhere between engineering, product, and people."
+                            data-fr=". J’aime naviguer entre la technique, le produit et les échanges avec les autres.">. I like being somewhere between engineering, product, and people.</span>
                     </p>
                     <p>
-                        <span data-en="I am a Software Engineering student at Concordia University specialized in" data-fr="Je suis étudiante en génie logiciel à l'Université Concordia, spécialisée en"></span>
-                        <span class="bg-neo-blue px-1 font-bold">Data, AI, Full-Stack Development</span>
-                        <span data-en="and" data-fr="et"></span>
-                        <span class="bg-neo-red text-white px-1 font-bold">project / product-oriented solution work</span>.
+                        <span data-en="I’m the kind of engineer who wants to understand " data-fr="Ce qui m’intéresse, c’est de comprendre ">I’m the kind of engineer who wants to understand </span><span
+                            class="bg-neo-pink px-1 font-bold" style="color: #121212;" data-en="why" data-fr="le pourquoi">why</span><span
+                            data-en=" we’re building something, not what needs to be done. I’ve worked on everything from client-facing AI demos to leading an 11-person project and rebuilding a real e-commerce platform from scratch."
+                            data-fr=" d’un projet, plutôt que de m’en tenir à une liste de tâches. J’ai eu l’occasion de développer des démos d’IA pour des clients, de piloter un projet avec une équipe de 11 personnes et de reprendre de zéro le développement d’une plateforme e-commerce bien réelle."> we’re building something, not what needs to be done. I’ve worked on everything from client-facing AI demos to leading an 11-person project and rebuilding a real e-commerce platform from scratch.</span>
                     </p>
                 </div>
 
                 <div
                     class="bg-neo-blue text-neo-black p-5 border-4 border-black shadow-hard mb-6 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-                    <p class="font-bold font-mono text-neo-black mb-2" data-en="/// CURRENT_MISSION" data-fr="/// MISSION_ACTUELLE">/// CURRENT_MISSION</p>
+                    <p class="font-bold font-mono text-neo-black mb-2" data-en="/// RIGHT_NOW" data-fr="/// EN_CE_MOMENT">/// RIGHT_NOW</p>
                     <p class="text-lg"
-                        data-en="Translating stakeholder needs into data-driven products, AI-powered demos, full-stack systems, and solution plans that are clear, measurable, and ready to ship."
-                        data-fr="Transformer les besoins des parties prenantes en produits pilotés par la donnée, démos alimentées par l'IA, systèmes full-stack et plans de solution clairs, mesurables et prêts à livrer.">
-                        Translating stakeholder needs into data-driven products, AI-powered demos, full-stack
-                        systems, and solution plans that are clear, measurable, and ready to ship.
+                        data-en="Building a production e-commerce platform &amp; looking for what’s next."
+                        data-fr="Je développe une plateforme e-commerce destinée à la production et je réfléchis à mon prochain défi.">
+                        Building a production e-commerce platform &amp; looking for what’s next.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-sm font-bold">
-                    <button type="button" data-not-clickable
-                        class="bg-white border-2 border-black p-3 text-left hover:bg-neo-blue hover:text-white transition-colors cursor-hover">
-                        <span data-en="> SOLUTION_ENGINEERING" data-fr="> SOLUTION_ENGINEERING">> SOLUTION_ENGINEERING</span>
-                    </button>
-                    <button type="button" data-not-clickable
-                        class="bg-white border-2 border-black p-3 text-left hover:bg-neo-pink hover:text-white transition-colors cursor-hover">
-                        <span data-en="> DATA_AND_AI" data-fr="> DATA_ET_IA">> DATA_AND_AI</span>
-                    </button>
-                    <button type="button" data-not-clickable
-                        class="bg-white border-2 border-black p-3 text-left hover:bg-neo-yellow hover:text-black transition-colors cursor-hover">
-                        <span data-en="> FULL_STACK_BUILDING" data-fr="> DEVELOPPEMENT_FULL_STACK">> FULL_STACK_BUILDING</span>
-                    </button>
-                    <button type="button" data-not-clickable
-                        class="bg-white border-2 border-black p-3 text-left hover:bg-neo-green hover:text-black transition-colors cursor-hover">
-                        <span data-en="> PRODUCT_PROJECT_MINDSET" data-fr="> VISION_PRODUIT_PROJET">> PRODUCT_PROJECT_MINDSET</span>
-                    </button>
+                <div class="space-y-2 font-mono text-xs sm:text-sm">
+                    <p>FR · AR · EN · ES</p>
+                    <p>PIANO</p>
+                    <p data-en="TRAVEL" data-fr="VOYAGE">TRAVEL</p>
                 </div>
             </div>
     </section>
 
-    <section id="skills" class="min-h-[85svh] py-12 bg-neo-white text-neo-black border-y-4 border-black relative overflow-hidden">
-        <div class="absolute inset-0 opacity-50"
-            style="background-image: linear-gradient(#f0d6e6 1px, transparent 1px), linear-gradient(90deg, #f0d6e6 1px, transparent 1px); background-size: 40px 40px;">
-        </div>
-
-        <div class="max-w-[1400px] mx-auto px-4 relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b-4 border-black pb-3">
-                <h2 class="text-5xl md:text-6xl font-black uppercase text-neo-black tracking-tighter">
-                    <span data-en="TECH" data-fr="OUTILS">TECH</span><span class="text-neo-blue">_</span><span class="text-neo-blue" data-en="STACK" data-fr="STACK">STACK</span>
-                </h2>
-                <div class="flex items-center gap-2 mb-2 md:mb-4">
-                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                    <p class="font-mono text-neo-blue text-sm font-bold" data-en="/// TOOLKIT_LOADED" data-fr="/// OUTILS_CHARGÉS">/// TOOLKIT_LOADED</p>
+    <section id="skills" aria-labelledby="stack-heading">
+        <div class="stack-inner">
+            <div class="stack-heading">
+                <h2 id="stack-heading"><span data-en="TECH" data-fr="OUTILS">TECH</span><span style="color: #45C2FF;">_STACK</span></h2>
+                <p class="stack-heading-note font-mono" data-en="/// THE TOOLKIT" data-fr="/// LA BOÎTE À OUTILS">/// THE TOOLKIT</p>
+            </div>
+            <div class="stack-tabs font-mono" role="tablist" aria-labelledby="stack-heading">
+                <button type="button" id="stack-tab-software" class="stack-tab-btn cursor-hover" role="tab" aria-selected="true" aria-controls="stack-panel-software" tabindex="0" data-page="software" style="--tab-color: #45C2FF;"><span data-en="SOFTWARE" data-fr="LOGICIEL">SOFTWARE</span></button>
+                <button type="button" id="stack-tab-ai-data" class="stack-tab-btn cursor-hover" role="tab" aria-selected="false" aria-controls="stack-panel-ai-data" tabindex="-1" data-page="ai-data" style="--tab-color: #FF4FA3;"><span data-en="AI &amp; DATA" data-fr="IA &amp; DATA">AI &amp; DATA</span></button>
+                <button type="button" id="stack-tab-systems-cloud" class="stack-tab-btn cursor-hover" role="tab" aria-selected="false" aria-controls="stack-panel-systems-cloud" tabindex="-1" data-page="systems-cloud" style="--tab-color: #45C2FF;"><span data-en="SYSTEMS &amp; CLOUD" data-fr="SYSTÈMES &amp; CLOUD">SYSTEMS &amp; CLOUD</span></button>
+                <button type="button" id="stack-tab-solutions" class="stack-tab-btn cursor-hover" role="tab" aria-selected="false" aria-controls="stack-panel-solutions" tabindex="-1" data-page="solutions" style="--tab-color: #FFE600;"><span data-en="SOLUTIONS" data-fr="SOLUTIONS">SOLUTIONS</span></button>
+            </div>
+            <div id="stack-panel-software" class="stack-page" role="tabpanel" aria-labelledby="stack-tab-software" tabindex="0" data-page="software" style="--stack-accent: #45C2FF;">
+                <div class="stack-primary">
+                    <div class="stack-feature">
+                        <h3 class="stack-eyebrow font-mono"><span data-en="PRODUCT DEVELOPMENT" data-fr="DÉVELOPPEMENT PRODUIT">PRODUCT DEVELOPMENT</span></h3>
+                        <ul class="stack-feature-list"><li class="stack-feature-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="React" data-fr="React">React</span></li><li class="stack-feature-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="Next.js" data-fr="Next.js">Next.js</span></li><li class="stack-feature-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="Node.js" data-fr="Node.js">Node.js</span></li></ul>
+                    </div>
+                    <div class="stack-support">
+                        <h3 class="stack-eyebrow font-mono"><span data-en="LANGUAGES &amp; BACKEND" data-fr="LANGAGES &amp; BACKEND">LANGUAGES &amp; BACKEND</span></h3>
+                        <ul class="stack-support-list"><li class="stack-support-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="TypeScript" data-fr="TypeScript">TypeScript</span></li><li class="stack-support-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="Python" data-fr="Python">Python</span></li><li class="stack-support-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="Java" data-fr="Java">Java</span></li><li class="stack-support-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="Spring Boot" data-fr="Spring Boot">Spring Boot</span></li></ul>
+                    </div>
                 </div>
+                <details class="stack-toolkit">
+                    <summary class="font-mono cursor-hover"><span><span class="stack-expand"><span data-en="EXPAND TOOLKIT" data-fr="VOIR PLUS D’OUTILS">EXPAND TOOLKIT</span></span><span class="stack-collapse"><span data-en="COLLAPSE TOOLKIT" data-fr="RÉDUIRE LA LISTE">COLLAPSE TOOLKIT</span></span></span></summary>
+                    <ul class="stack-secondary font-mono"><li><span data-en="JavaScript" data-fr="JavaScript">JavaScript</span></li><li><span data-en="Express.js" data-fr="Express.js">Express.js</span></li><li><span data-en="FastAPI" data-fr="FastAPI">FastAPI</span></li><li><span data-en="HTML/CSS" data-fr="HTML/CSS">HTML/CSS</span></li><li><span data-en="React Native" data-fr="React Native">React Native</span></li><li><span data-en="Vite" data-fr="Vite">Vite</span></li><li><span data-en="Tailwind CSS" data-fr="Tailwind CSS">Tailwind CSS</span></li></ul>
+                </details>
             </div>
-
-            <div class="border-4 border-black bg-white p-4 md:p-5 shadow-hard mb-6">
-                <div class="flex flex-wrap gap-3">
-                    <button class="stack-tab-btn cursor-hover px-4 py-2 border-2 border-black bg-neo-blue font-mono font-black uppercase text-sm shadow-hard-sm" data-page="frontend" data-en="Frontend" data-fr="Front-end">Frontend</button>
-                    <button class="stack-tab-btn cursor-hover px-4 py-2 border-2 border-black bg-white font-mono font-black uppercase text-sm shadow-hard-sm" data-page="backend" data-en="Backend" data-fr="Back-end">Backend</button>
-                    <button class="stack-tab-btn cursor-hover px-4 py-2 border-2 border-black bg-white font-mono font-black uppercase text-sm shadow-hard-sm" data-page="data-ai" data-en="Data &amp; AI" data-fr="Data &amp; IA">Data &amp; AI</button>
-                    <button class="stack-tab-btn cursor-hover px-4 py-2 border-2 border-black bg-white font-mono font-black uppercase text-sm shadow-hard-sm" data-page="tools-devops" data-en="Tools / DevOps" data-fr="Outils / DevOps">Tools / DevOps</button>
+            <div id="stack-panel-ai-data" class="stack-page" role="tabpanel" aria-labelledby="stack-tab-ai-data" tabindex="0" data-page="ai-data" style="--stack-accent: #FF4FA3;" hidden>
+                <div class="stack-primary">
+                    <div class="stack-feature">
+                        <h3 class="stack-eyebrow font-mono"><span data-en="LLM SYSTEMS" data-fr="SYSTÈMES LLM">LLM SYSTEMS</span></h3>
+                        <ul class="stack-feature-list"><li class="stack-feature-item"><span data-en="LLM APIs" data-fr="API de LLM">LLM APIs</span></li><li class="stack-feature-item"><span data-en="RAG" data-fr="RAG">RAG</span></li><li class="stack-feature-item"><span data-en="Vector Search" data-fr="Recherche vectorielle">Vector Search</span></li></ul>
+                    </div>
+                    <div class="stack-support">
+                        <h3 class="stack-eyebrow font-mono"><span data-en="AI, ML &amp; DATA" data-fr="IA, ML &amp; DONNÉES">AI, ML &amp; DATA</span></h3>
+                        <ul class="stack-support-list"><li class="stack-support-item"><span data-en="Embeddings" data-fr="Embeddings">Embeddings</span></li><li class="stack-support-item"><span data-en="Tool Calling" data-fr="Appels d’outils">Tool Calling</span></li><li class="stack-support-item"><span data-en="AI Evaluation" data-fr="Évaluation des modèles">AI Evaluation</span></li><li class="stack-support-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="PyTorch" data-fr="PyTorch">PyTorch</span></li><li class="stack-support-item"><span data-en="scikit-learn" data-fr="scikit-learn">scikit-learn</span></li><li class="stack-support-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="PostgreSQL" data-fr="PostgreSQL">PostgreSQL</span></li></ul>
+                    </div>
                 </div>
+                <details class="stack-toolkit">
+                    <summary class="font-mono cursor-hover"><span><span class="stack-expand"><span data-en="EXPAND TOOLKIT" data-fr="VOIR PLUS D’OUTILS">EXPAND TOOLKIT</span></span><span class="stack-collapse"><span data-en="COLLAPSE TOOLKIT" data-fr="RÉDUIRE LA LISTE">COLLAPSE TOOLKIT</span></span></span></summary>
+                    <ul class="stack-secondary font-mono"><li><span data-en="Pandas" data-fr="Pandas">Pandas</span></li><li><span data-en="NumPy" data-fr="NumPy">NumPy</span></li><li><span data-en="SQL" data-fr="SQL">SQL</span></li><li><span data-en="MySQL" data-fr="MySQL">MySQL</span></li><li><span data-en="Prompt Engineering" data-fr="Conception de prompts">Prompt Engineering</span></li><li><span data-en="Feature Engineering" data-fr="Ingénierie des variables">Feature Engineering</span></li><li><span data-en="Recommender Systems" data-fr="Systèmes de recommandation">Recommender Systems</span></li><li><span data-en="CNNs" data-fr="CNNs">CNNs</span></li></ul>
+                </details>
             </div>
-
-            <div class="stack-page" data-page="frontend">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">React</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/expo/000020" alt="React Native" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">React Native</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">JavaScript</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">TypeScript</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="TailwindCSS" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">TailwindCSS</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/vite/646CFF" alt="Vite" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Vite</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Next.js</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">HTML5</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">CSS3</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Figma</p></div>
+            <div id="stack-panel-systems-cloud" class="stack-page" role="tabpanel" aria-labelledby="stack-tab-systems-cloud" tabindex="0" data-page="systems-cloud" style="--stack-accent: #45C2FF;" hidden>
+                <div class="stack-primary">
+                    <div class="stack-feature">
+                        <h3 class="stack-eyebrow font-mono"><span data-en="INFRASTRUCTURE" data-fr="INFRASTRUCTURE">INFRASTRUCTURE</span></h3>
+                        <ul class="stack-feature-list"><li class="stack-feature-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="Docker" data-fr="Docker">Docker</span></li><li class="stack-feature-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="Kubernetes" data-fr="Kubernetes">Kubernetes</span></li><li class="stack-feature-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" width="32" height="32" loading="lazy"><span data-en="AWS" data-fr="AWS">AWS</span></li><li class="stack-feature-item"><img class="stack-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="" width="32" height="32" loading="lazy"><span data-en="Redis" data-fr="Redis">Redis</span></li></ul>
+                    </div>
+                    <div class="stack-support">
+                        <h3 class="stack-eyebrow font-mono"><span data-en="DELIVERY &amp; COMMUNICATION" data-fr="LIVRAISON &amp; COMMUNICATION">DELIVERY &amp; COMMUNICATION</span></h3>
+                        <ul class="stack-support-list"><li class="stack-support-item"><span data-en="CI/CD" data-fr="CI/CD">CI/CD</span></li><li class="stack-support-item"><span data-en="REST APIs" data-fr="REST APIs">REST APIs</span></li><li class="stack-support-item"><span data-en="WebSockets" data-fr="WebSockets">WebSockets</span></li></ul>
+                    </div>
                 </div>
+                <details class="stack-toolkit">
+                    <summary class="font-mono cursor-hover"><span><span class="stack-expand"><span data-en="EXPAND TOOLKIT" data-fr="VOIR PLUS D’OUTILS">EXPAND TOOLKIT</span></span><span class="stack-collapse"><span data-en="COLLAPSE TOOLKIT" data-fr="RÉDUIRE LA LISTE">COLLAPSE TOOLKIT</span></span></span></summary>
+                    <ul class="stack-secondary font-mono"><li><span data-en="Railway" data-fr="Railway">Railway</span></li><li><span data-en="Prisma" data-fr="Prisma">Prisma</span></li><li><span data-en="Supabase" data-fr="Supabase">Supabase</span></li><li><span data-en="Firebase" data-fr="Firebase">Firebase</span></li><li><span data-en="MongoDB" data-fr="MongoDB">MongoDB</span></li><li><span data-en="Git" data-fr="Git">Git</span></li><li><span data-en="GitHub" data-fr="GitHub">GitHub</span></li><li><span data-en="Postman" data-fr="Postman">Postman</span></li><li><span data-en="Nginx" data-fr="Nginx">Nginx</span></li><li><span data-en="API Design" data-fr="Conception d’API">API Design</span></li></ul>
+                </details>
             </div>
-
-            <div class="stack-page hidden" data-page="backend">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Node.js</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Express.js</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Java</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Spring Boot</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Python</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">FastAPI</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Flask</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Django</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">PostgreSQL</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">MongoDB</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Firebase</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">SQL</p></div>
+            <div id="stack-panel-solutions" class="stack-page" role="tabpanel" aria-labelledby="stack-tab-solutions" tabindex="0" data-page="solutions" style="--stack-accent: #FFE600;" hidden>
+                <div class="stack-primary">
+                    <div class="stack-feature">
+                        <h3 class="stack-eyebrow font-mono"><span data-en="FROM NEED TO DESIGN" data-fr="DU BESOIN À LA CONCEPTION">FROM NEED TO DESIGN</span></h3>
+                        <ul class="stack-feature-list"><li class="stack-feature-item"><span data-en="Solution Architecture" data-fr="Architecture de solutions">Solution Architecture</span></li><li class="stack-feature-item"><span data-en="Technical Discovery" data-fr="Analyse des besoins techniques">Technical Discovery</span></li></ul>
+                    </div>
+                    <div class="stack-support">
+                        <h3 class="stack-eyebrow font-mono"><span data-en="FROM CONCEPT TO DELIVERY" data-fr="DU CONCEPT À LA LIVRAISON">FROM CONCEPT TO DELIVERY</span></h3>
+                        <ul class="stack-support-list"><li class="stack-support-item"><span data-en="Technical Demos" data-fr="Démos techniques">Technical Demos</span></li><li class="stack-support-item"><span data-en="Proof of Concepts" data-fr="Preuves de concept">Proof of Concepts</span></li><li class="stack-support-item"><span data-en="API Integrations" data-fr="Intégrations d’API">API Integrations</span></li><li class="stack-support-item"><span data-en="Requirements Analysis" data-fr="Analyse des exigences">Requirements Analysis</span></li></ul>
+                    </div>
                 </div>
+                <details class="stack-toolkit">
+                    <summary class="font-mono cursor-hover"><span><span class="stack-expand"><span data-en="EXPAND TOOLKIT" data-fr="VOIR PLUS D’OUTILS">EXPAND TOOLKIT</span></span><span class="stack-collapse"><span data-en="COLLAPSE TOOLKIT" data-fr="RÉDUIRE LA LISTE">COLLAPSE TOOLKIT</span></span></span></summary>
+                    <ul class="stack-secondary font-mono"><li><span data-en="OAuth" data-fr="OAuth">OAuth</span></li><li><span data-en="Webhooks" data-fr="Webhooks">Webhooks</span></li><li><span data-en="JSON" data-fr="JSON">JSON</span></li><li><span data-en="Stakeholder Communication" data-fr="Échanges avec les parties prenantes">Stakeholder Communication</span></li><li><span data-en="Agile / Scrum" data-fr="Agile / Scrum">Agile / Scrum</span></li><li><span data-en="Jira" data-fr="Jira">Jira</span></li></ul>
+                </details>
             </div>
-
-            <div class="stack-page hidden" data-page="data-ai">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Python</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">NumPy</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Pandas</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="scikit-learn" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">scikit-learn</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">OpenCV</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">PyTorch</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">TensorFlow</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/huggingface/FFCC4D" alt="Hugging Face" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Hugging Face</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/yolo/111111" alt="YOLOv8" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">YOLOv8</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">SQL</p></div>
-                </div>
-            </div>
-
-            <div class="stack-page hidden" data-page="tools-devops">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Docker</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Git</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">GitHub</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Postman</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Jira</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="CI/CD" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">CI/CD</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/amazonaws/232F3E" alt="AWS S3" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">AWS S3</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/jest/C21325" alt="Jest" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">Jest</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/junit5/25A162" alt="JUnit" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">JUnit</p></div>
-                    <div class="bg-white border-4 border-black p-4 shadow-hard hover:-translate-y-1 transition-all cursor-hover text-center"><img src="https://cdn.simpleicons.org/pytest/0A9EDC" alt="PyTest" class="w-12 h-12 mx-auto mb-2"><p class="font-mono font-bold">PyTest</p></div>
-                </div>
-            </div>
-
-            <div class="border-t-4 border-black mt-8 pt-4 flex justify-between font-mono text-xs text-gray-600">
-                <span data-en="TOTAL_NODES: 42" data-fr="TOTAL_OUTILS : 42">TOTAL_NODES: 42</span>
-                <span data-en="FOCUS: DATA + AI + DELIVERY" data-fr="FOCUS : DATA + IA + LIVRAISON">FOCUS: DATA + AI + DELIVERY</span>
-            </div>
+            <p class="stack-meta font-mono" data-en="FOCUS: SOFTWARE · AI · SYSTEMS · SOLUTIONS" data-fr="FOCUS : LOGICIEL · IA · SYSTÈMES · SOLUTIONS">FOCUS: SOFTWARE · AI · SYSTEMS · SOLUTIONS</p>
         </div>
     </section>
 
@@ -1840,27 +2267,37 @@
         setTheme(savedTheme ? savedTheme : (browserPrefersDark ? 'dark' : 'light'));
         setLanguage('en');
 
-        // Stack pages
-        const stackTabButtons = document.querySelectorAll('.stack-tab-btn');
-        const stackPages = document.querySelectorAll('.stack-page');
+        // Stack pages: scoped tabs with keyboard navigation and native toolkit disclosure.
+        const stackTabButtons = [...document.querySelectorAll('#skills .stack-tab-btn')];
+        const stackPages = document.querySelectorAll('#skills .stack-page');
 
         function setStackPage(page) {
             stackPages.forEach((section) => {
-                section.classList.toggle('hidden', section.dataset.page !== page);
+                section.hidden = section.dataset.page !== page;
             });
-
             stackTabButtons.forEach((button) => {
                 const isActive = button.dataset.page === page;
-                button.className = `stack-tab-btn cursor-hover px-4 py-2 border-2 border-black font-mono font-black uppercase text-sm shadow-hard-sm transition-all ${isActive ? 'bg-neo-blue text-black' : 'bg-white text-black hover:bg-neo-yellow'}`;
+                button.setAttribute('aria-selected', String(isActive));
+                button.tabIndex = isActive ? 0 : -1;
             });
         }
 
-        if (stackTabButtons.length) {
-            stackTabButtons.forEach((button) => {
-                button.addEventListener('click', () => setStackPage(button.dataset.page));
+        stackTabButtons.forEach((button, index) => {
+            button.addEventListener('click', () => setStackPage(button.dataset.page));
+            button.addEventListener('keydown', (event) => {
+                let nextIndex;
+                if (event.key === 'ArrowRight') nextIndex = (index + 1) % stackTabButtons.length;
+                else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + stackTabButtons.length) % stackTabButtons.length;
+                else if (event.key === 'Home') nextIndex = 0;
+                else if (event.key === 'End') nextIndex = stackTabButtons.length - 1;
+                else return;
+                event.preventDefault();
+                const nextTab = stackTabButtons[nextIndex];
+                setStackPage(nextTab.dataset.page);
+                nextTab.focus();
             });
-            setStackPage('frontend');
-        }
+        });
+        if (stackTabButtons.length) setStackPage('software');
 
         // Bottom-of-page confetti
         const confettiCanvas = document.getElementById('confetti-canvas');
