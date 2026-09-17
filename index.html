@@ -449,9 +449,12 @@
             color: #f8fafc !important;
         }
 
-        body.dark-mode #experience .checkpoint-card .bg-neo-green,
-        body.dark-mode #experience .checkpoint-card .bg-neo-black {
+        body.dark-mode #experience .checkpoint-card .bg-neo-green {
             color: #020617 !important;
+        }
+
+        body.dark-mode #experience .checkpoint-card .bg-neo-black {
+            color: #f8fafc !important;
         }
 
         body.dark-mode #experience .border-dashed {
@@ -900,6 +903,82 @@
         }
         @media (prefers-reduced-motion: reduce) {
             #skills .stack-tab-btn { transition: none; }
+        }
+
+        /* Selected work: production flagship, scoped to this section. */
+        #projects .work-header { margin-bottom: 36px; }
+        #projects .work-heading { font-size: clamp(36px, 6vw, 76px); line-height: 1; margin-bottom: 16px; overflow-wrap: anywhere; }
+        #projects .work-subheading { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
+        #projects .flagship { background: #FFFDFC; color: #121212; border: 4px solid #000; box-shadow: 8px 8px 0 #000; margin-bottom: 48px; }
+        #projects .flagship summary { list-style: none; cursor: pointer; }
+        #projects .flagship summary::-webkit-details-marker { display: none; }
+        #projects .flagship summary:focus-visible { outline: 4px solid #FF4FA3; outline-offset: 7px; }
+        #projects .flagship-masthead { display: flex; align-items: center; gap: 28px; padding: 28px 32px; border-bottom: 3px solid #000; }
+        #projects .flagship-number { font-size: clamp(72px, 9vw, 128px); line-height: 0.9; font-weight: 800; letter-spacing: -0.08em; color: #45C2FF; -webkit-text-stroke: 2px #000; }
+        #projects .flagship-label { font-size: 11px; font-weight: 700; letter-spacing: 0.055em; line-height: 1.6; margin-bottom: 10px; }
+        #projects .flagship-title { font-size: clamp(30px, 4.2vw, 56px); line-height: 1; font-weight: 800; text-transform: uppercase; letter-spacing: -0.045em; }
+        #projects .flagship-proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 3px solid #000; padding: 20px 32px; gap: 18px; }
+        #projects .flagship-proof li { font-size: 11px; font-weight: 700; line-height: 1.4; }
+        #projects .flagship-proof strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 28px; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 6px; }
+        #projects .flagship-proof li:first-child strong { text-decoration: underline; text-decoration-color: #FF4FA3; text-decoration-thickness: 5px; text-underline-offset: 3px; }
+        #projects .flagship-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; padding: 32px; }
+        #projects .flagship-main > * { min-width: 0; }
+        #projects .flagship-visual { display: flex; flex-direction: column; gap: 14px; }
+        #projects .flagship-placeholder { width: 100%; min-width: 0; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; min-height: 300px; aspect-ratio: 4 / 3; border: 2px solid #000; background-color: #f7f0f4; background-image: linear-gradient(#ead6e2 1px, transparent 1px), linear-gradient(90deg, #ead6e2 1px, transparent 1px); background-size: 32px 32px; padding: 24px; }
+        #projects .flagship-placeholder::before, #projects .flagship-placeholder::after { content: ''; position: absolute; width: 24px; height: 24px; border-color: #121212; border-style: solid; }
+        #projects .flagship-placeholder::before { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
+        #projects .flagship-placeholder::after { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+        #projects .flagship-image-label { max-width: 100%; overflow-wrap: anywhere; border: 2px solid #000; box-shadow: 3px 3px 0 #000; background: #FFE600; color: #121212; padding: 8px 12px; font-size: 11px; font-weight: 700; text-align: center; }
+        #projects .flagship-placeholder-name { font-size: clamp(26px, 3vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -0.04em; text-align: center; }
+        #projects .flagship-caption { font-size: 10px; line-height: 1.6; }
+        #projects .flagship-headline { font-size: clamp(26px, 2.7vw, 36px); line-height: 1.12; font-weight: 700; letter-spacing: -0.035em; margin-bottom: 18px; }
+        #projects .flagship-description { font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
+        #projects .flagship-technical { display: grid; gap: 16px; }
+        #projects .flagship-technical dt { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 5px; }
+        #projects .flagship-technical dd { font-size: 14px; line-height: 1.65; }
+        #projects .flagship-technical .flagship-core { font-weight: 700; font-size: 16px; }
+        #projects .flagship-scope { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin: 0 32px; padding: 24px 0; border-top: 2px solid #000; }
+        #projects .flagship-scope dt { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+        #projects .flagship-scope dd { font-size: 12px; line-height: 1.8; }
+        #projects .flagship-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 0 32px 28px; }
+        #projects .flagship-cta { display: inline-flex; align-items: center; min-height: 52px; padding: 14px 20px; background: #121212; color: #FFFDFC; border: 2px solid #000; box-shadow: 4px 4px 0 #45C2FF; font-size: 13px; font-weight: 700; transition: transform 150ms ease, box-shadow 150ms ease; }
+        #projects .flagship summary:hover .flagship-cta { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #45C2FF; }
+        #projects .flagship-status { font-size: 10px; }
+        #projects .flagship-notice { padding: 20px 32px; border-top: 3px solid #000; background: #45C2FF; color: #121212; font-size: 14px; }
+        #projects .work-number { font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+        body.dark-mode #projects .work-subheading { color: #FFFDFC; }
+        body.dark-mode #projects .flagship { background: #241e27; color: #FFFDFC; }
+        body.dark-mode #projects .flagship-placeholder { color: #121212; }
+        body.dark-mode #projects .flagship-cta { border-color: #FFFDFC; }
+        @media (max-width: 900px) {
+            #projects .flagship-main { gap: 24px; padding: 24px; }
+            #projects .flagship-placeholder { min-height: 250px; }
+            #projects .flagship-masthead { padding: 24px; gap: 20px; }
+            #projects .flagship-proof { padding: 20px 24px; }
+            #projects .flagship-scope { margin: 0 24px; gap: 20px; }
+            #projects .flagship-footer { padding: 0 24px 24px; }
+        }
+        @media (max-width: 700px) {
+            #projects .work-heading { -webkit-text-stroke-width: 1.5px !important; }
+            #projects .flagship { box-shadow: 5px 5px 0 #000; }
+            #projects .flagship-masthead { align-items: flex-start; gap: 16px; padding: 20px 16px; }
+            #projects .flagship-number { font-size: 64px; }
+            #projects .flagship-label { font-size: 9px; margin-bottom: 8px; }
+            #projects .flagship-title { font-size: 30px; }
+            #projects .flagship-proof { grid-template-columns: 1fr 1fr; gap: 20px 16px; padding: 20px 16px; }
+            #projects .flagship-proof strong { font-size: clamp(18px, 5.6vw, 26px); }
+            #projects .flagship-proof li { font-size: 10px; }
+            #projects .flagship-main { grid-template-columns: minmax(0, 1fr); padding: 20px 16px; gap: 24px; }
+            #projects .flagship-placeholder { min-height: 190px; aspect-ratio: 16 / 10; }
+            #projects .flagship-headline { font-size: 28px; }
+            #projects .flagship-scope { grid-template-columns: 1fr; margin: 0 16px; gap: 16px; padding: 20px 0; }
+            #projects .flagship-scope dd { font-size: 11px; }
+            #projects .flagship-footer { padding: 0 16px 20px; gap: 12px; }
+            #projects .flagship-cta { font-size: 11px; padding: 14px; }
+            #projects .flagship-notice { padding: 16px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #projects .flagship-cta { transition: none; }
         }
 
         /* Glitch Effect on Hover */
@@ -1356,54 +1435,65 @@
     </section>
     <section id="projects" class="min-h-[85svh] py-12 bg-neo-yellow border-t-4 border-black px-4 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-5xl md:text-7xl font-black mb-10 uppercase tracking-tighter text-white drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-stroke-black"
-                style="-webkit-text-stroke: 3px black;">
-                <span data-en="Selected Works" data-fr="Projets Choisis">Selected Works</span>
-            </h2>
+            <header class="work-header">
+                <h2 class="work-heading font-black uppercase tracking-tighter text-white drop-shadow-[4px_4px_0_rgba(0,0,0,1)]" style="-webkit-text-stroke: 3px black;">
+                    <span data-en="SELECTED_WORK" data-fr="PROJETS_CHOISIS">SELECTED_WORK</span>
+                </h2>
+                <p class="work-subheading font-mono" data-en="/ BUILT · LED · SHIPPED" data-fr="/ CONÇUS · PILOTÉS · LIVRÉS">/ BUILT · LED · SHIPPED</p>
+            </header>
+
+            <article id="atelier-magique" class="reveal">
+                <details class="flagship">
+                    <summary class="cursor-hover">
+                        <div class="flagship-masthead">
+                            <span class="flagship-number" aria-hidden="true">01</span>
+                            <div>
+                                <p class="flagship-label font-mono"><span data-en="PRODUCTION SYSTEM · FREELANCE · 2026—NOW" data-fr="PLATEFORME EN PRODUCTION · FREELANCE · DEPUIS 2026">PRODUCTION SYSTEM · FREELANCE · 2026—NOW</span></p>
+                                <h3 class="flagship-title">Atelier Magique</h3>
+                            </div>
+                        </div>
+                        <ul class="flagship-proof font-mono">
+                            <li><strong>LIVE</strong><span data-en="PRODUCTION" data-fr="EN PRODUCTION">PRODUCTION</span></li>
+                            <li><strong>268+</strong><span data-en="PRODUCTS" data-fr="PRODUITS">PRODUCTS</span></li>
+                            <li><strong>3D SECURE</strong><span data-en="PAYMENTS" data-fr="PAIEMENTS">PAYMENTS</span></li>
+                            <li><strong><span data-en="AI-ASSISTED" data-fr="ASSISTÉES PAR L’IA">AI-ASSISTED</span></strong><span data-en="OPERATIONS" data-fr="OPÉRATIONS">OPERATIONS</span></li>
+                        </ul>
+                        <div class="flagship-main">
+                            <div class="flagship-visual">
+                                <!-- Replace this placeholder with a real Atelier Magique product screenshot when available. -->
+                                <div class="flagship-placeholder">
+                                    <span class="flagship-placeholder-name">ATELIER<br>MAGIQUE</span>
+                                    <span class="flagship-image-label font-mono"><span data-en="PRODUCT SCREENSHOT COMING SOON" data-fr="CAPTURE DU PRODUIT À VENIR">PRODUCT SCREENSHOT COMING SOON</span></span>
+                                </div>
+                                <p class="flagship-caption font-mono"><span data-en="WORDPRESS / WOOCOMMERCE → CUSTOM PRODUCTION PLATFORM" data-fr="WORDPRESS / WOOCOMMERCE → PLATEFORME SUR MESURE">WORDPRESS / WOOCOMMERCE → CUSTOM PRODUCTION PLATFORM</span></p>
+                            </div>
+                            <div>
+                                <p class="flagship-headline"><span data-en="Rebuilding a live e-commerce business from the ground up." data-fr="Repenser de bout en bout la plateforme d’un commerce en ligne en activité.">Rebuilding a live e-commerce business from the ground up.</span></p>
+                                <p class="flagship-description"><span data-en="End-to-end migration from WordPress/WooCommerce to a modern production platform covering commerce, payments, infrastructure, automation and AI-assisted operations." data-fr="Migration complète de WordPress/WooCommerce vers une plateforme moderne en production : commerce, paiements, infrastructure, automatisation et opérations assistées par l’IA.">End-to-end migration from WordPress/WooCommerce to a modern production platform covering commerce, payments, infrastructure, automation and AI-assisted operations.</span></p>
+                                <dl class="flagship-technical">
+                                    <div><dt class="font-mono"><span data-en="ROLE" data-fr="RÔLE">ROLE</span></dt><dd><span data-en="Freelance Software Engineer" data-fr="Ingénieure logicielle freelance">Freelance Software Engineer</span></dd></div>
+                                    <div><dt class="font-mono"><span data-en="CORE STACK" data-fr="SOCLE TECHNIQUE">CORE STACK</span></dt><dd class="flagship-core">Next.js · Node.js/Express · PostgreSQL · Prisma</dd></div>
+                                    <div><dt class="font-mono"><span data-en="ADDITIONAL SYSTEMS" data-fr="SYSTÈMES INTÉGRÉS">ADDITIONAL SYSTEMS</span></dt><dd><span data-en="CMI Payments · Cloudinary · Railway · GA4 · Transactional Email · AI Workflows" data-fr="Paiements CMI · Cloudinary · Railway · GA4 · E-mails transactionnels · Workflows IA">CMI Payments · Cloudinary · Railway · GA4 · Transactional Email · AI Workflows</span></dd></div>
+                                </dl>
+                            </div>
+                        </div>
+                        <dl class="flagship-scope">
+                            <div><dt class="font-mono"><span data-en="01 / COMMERCE" data-fr="01 / COMMERCE">01 / COMMERCE</span></dt><dd><span data-en="Catalog &amp; search · Checkout · Orders · Promotions · Gift cards · Registries" data-fr="Catalogue et recherche · Commandes · Promotions · Cartes-cadeaux · Listes de cadeaux">Catalog &amp; search · Checkout · Orders · Promotions · Gift cards · Registries</span></dd></div>
+                            <div><dt class="font-mono"><span data-en="02 / SYSTEMS" data-fr="02 / SYSTÈMES">02 / SYSTEMS</span></dt><dd><span data-en="Authentication · Payments · Database migrations · Production infrastructure" data-fr="Authentification · Paiements · Migrations de données · Infrastructure de production">Authentication · Payments · Database migrations · Production infrastructure</span></dd></div>
+                            <div><dt class="font-mono"><span data-en="03 / OPERATIONS" data-fr="03 / OPÉRATIONS">03 / OPERATIONS</span></dt><dd><span data-en="Email · Admin workflows · Analytics · SEO migration · Integrations · AI" data-fr="E-mails · Administration · Analytique · Migration SEO · Intégrations · IA">Email · Admin workflows · Analytics · SEO migration · Integrations · AI</span></dd></div>
+                        </dl>
+                        <div class="flagship-footer">
+                            <span class="flagship-cta font-mono"><span data-en="EXPLORE CASE STUDY →" data-fr="DÉCOUVRIR LE PROJET →">EXPLORE CASE STUDY →</span></span>
+                            <span class="flagship-status font-mono"><span data-en="CASE STUDY IN PROGRESS" data-fr="ÉTUDE DE CAS EN PRÉPARATION">CASE STUDY IN PROGRESS</span></span>
+                        </div>
+                    </summary>
+                    <p class="flagship-notice"><span data-en="The full case study is coming soon." data-fr="L’étude de cas complète sera bientôt disponible.">The full case study is coming soon.</span></p>
+                </details>
+            </article>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <!-- Bambuu -->
-                <article class="reveal group bg-white border-4 border-black p-4 shadow-hard self-start">
-                    <div
-                        class="bg-white border-2 border-black relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
-                        <img src="Assets/images/bambu.png" alt="Bambuu - Student Finance App"
-                            class="w-full h-auto object-contain">
-                    </div>
-                    <div class="flex justify-between items-start gap-4">
-                        <div class="flex-1 min-w-0">
-                            <div class="flex flex-wrap gap-2 mb-3 font-mono text-[10px] font-black uppercase">
-                                <span class="border-2 border-black bg-neo-green px-2 py-1">Hackathon Winner</span>
-                                <span class="border-2 border-black bg-neo-blue px-2 py-1">Team of 4</span>
-                                <span class="border-2 border-black bg-white px-2 py-1">PM + Full-Stack</span>
-                            </div>
-                            <h3
-                                class="text-2xl md:text-3xl font-black uppercase mb-2 group-hover:text-neo-green transition-colors glitch-hover">
-                                Bambuu</h3>
-                            <p class="font-mono text-sm mb-4" data-en="Student-focused personal finance app built for irregular income, subscriptions, savings goals, AI smart insights, and real student money habits." data-fr="Application de finances personnelles pensée pour les étudiants avec revenus irréguliers, abonnements, objectifs d'épargne, smart insights IA et habitudes financières étudiantes réelles.">Student-focused personal finance app built for irregular income, subscriptions, savings goals, AI smart insights, and real student money habits.</p>
-                            <p class="font-mono text-xs mb-4 border-l-4 border-black pl-3" data-en="Outcome: product management hackathon winner featuring student discount detection, AI-powered smart insights, and investment education." data-fr="Résultat : projet gagnant d'un hackathon de product management intégrant détection de réductions étudiantes, smart insights pilotés par l'IA et éducation à l'investissement.">Outcome: product management hackathon winner featuring student discount detection, AI-powered smart insights, and investment education.</p>
-                            <div class="flex gap-2 font-mono text-xs font-bold flex-wrap">
-                                <span class="bg-neo-black text-white px-2 py-1">React</span>
-                                <span class="bg-neo-black text-white px-2 py-1">TypeScript</span>
-                                <span class="bg-neo-black text-white px-2 py-1">Supabase</span>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <a href="https://bambuu.me/" target="_blank"
-                                class="w-12 h-12 border-2 border-black bg-neo-black text-white flex items-center justify-center hover:bg-neo-white hover:text-black transition-all cursor-hover shadow-hard-sm"
-                                title="View More" data-en-title="View More" data-fr-title="Voir plus">
-                                <i class="ri-eye-line text-2xl"></i>
-                            </a>
-                            <a href="https://github.com/Zineb2a/Bambuu" target="_blank"
-                                class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-hover shadow-hard-sm"
-                                title="GitHub Repo" data-en-title="GitHub Repo" data-fr-title="Repo GitHub">
-                                <i class="ri-github-fill text-2xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- FoodFlow -->
-                <article class="reveal group bg-white border-4 border-black p-4 shadow-hard mt-0 md:mt-20">
+                <article class="reveal group bg-white border-4 border-black p-4 shadow-hard">
+                    <p class="work-number font-mono">02 /</p>
                     <div
                         class="bg-white border-2 border-black relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
                         <img src="Assets/images/foodflow.png" alt="FoodFlow - Surplus Food Redistribution Platform"
@@ -1444,38 +1534,38 @@
                     </div>
                 </article>
 
-                <!-- Aura -->
-                <article class="reveal group bg-white border-4 border-black p-4 shadow-hard">
+                <article class="reveal group bg-white border-4 border-black p-4 shadow-hard self-start">
+                    <p class="work-number font-mono">03 /</p>
                     <div
-                        class="bg-black border-2 border-black aspect-video relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
-                        <img src="Assets/images/Aura.png" alt="Aura - Full-Stack E-commerce Platform"
-                            class="w-full h-full object-cover">
+                        class="bg-white border-2 border-black relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
+                        <img src="Assets/images/bambu.png" alt="Bambuu - Student Finance App"
+                            class="w-full h-auto object-contain">
                     </div>
                     <div class="flex justify-between items-start gap-4">
                         <div class="flex-1 min-w-0">
                             <div class="flex flex-wrap gap-2 mb-3 font-mono text-[10px] font-black uppercase">
-                                <span class="border-2 border-black bg-neo-red px-2 py-1">Full-Stack</span>
-                                <span class="border-2 border-black bg-white px-2 py-1">E-commerce</span>
-                                <span class="border-2 border-black bg-neo-yellow px-2 py-1">Dec 2024</span>
+                                <span class="border-2 border-black bg-neo-green px-2 py-1">Hackathon Winner</span>
+                                <span class="border-2 border-black bg-neo-blue px-2 py-1">Team of 4</span>
+                                <span class="border-2 border-black bg-white px-2 py-1">PM + Full-Stack</span>
                             </div>
                             <h3
-                                class="text-2xl md:text-3xl font-black uppercase mb-2 group-hover:text-neo-red transition-colors glitch-hover">
-                                Aura</h3>
-                            <p class="font-mono text-sm mb-4" data-en="Full-stack e-commerce platform for artisanal handcrafted products with a customer storefront, admin panel, and backend API." data-fr="Plateforme e-commerce full-stack pour des produits artisanaux faits main avec boutique client, panneau admin et API backend.">Full-stack e-commerce platform for artisanal handcrafted products with a customer storefront, admin panel, and backend API.</p>
-                            <p class="font-mono text-xs mb-4 border-l-4 border-black pl-3" data-en="Outcome: delivered secure authentication, catalog browsing, checkout flows, inventory management, and order administration." data-fr="Résultat : livraison d'une authentification sécurisée, de parcours catalogue et checkout, de la gestion d'inventaire et de l'administration des commandes.">Outcome: delivered secure authentication, catalog browsing, checkout flows, inventory management, and order administration.</p>
+                                class="text-2xl md:text-3xl font-black uppercase mb-2 group-hover:text-neo-green transition-colors glitch-hover">
+                                Bambuu</h3>
+                            <p class="font-mono text-sm mb-4" data-en="Student-focused personal finance app built for irregular income, subscriptions, savings goals, AI smart insights, and real student money habits." data-fr="Application de finances personnelles pensée pour les étudiants avec revenus irréguliers, abonnements, objectifs d'épargne, smart insights IA et habitudes financières étudiantes réelles.">Student-focused personal finance app built for irregular income, subscriptions, savings goals, AI smart insights, and real student money habits.</p>
+                            <p class="font-mono text-xs mb-4 border-l-4 border-black pl-3" data-en="Outcome: product management hackathon winner featuring student discount detection, AI-powered smart insights, and investment education." data-fr="Résultat : projet gagnant d'un hackathon de product management intégrant détection de réductions étudiantes, smart insights pilotés par l'IA et éducation à l'investissement.">Outcome: product management hackathon winner featuring student discount detection, AI-powered smart insights, and investment education.</p>
                             <div class="flex gap-2 font-mono text-xs font-bold flex-wrap">
                                 <span class="bg-neo-black text-white px-2 py-1">React</span>
-                                <span class="bg-neo-black text-white px-2 py-1">Express</span>
-                                <span class="bg-neo-black text-white px-2 py-1">MongoDB</span>
+                                <span class="bg-neo-black text-white px-2 py-1">TypeScript</span>
+                                <span class="bg-neo-black text-white px-2 py-1">Supabase</span>
                             </div>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <a href="projects.html#aura"
+                            <a href="https://bambuu.me/" target="_blank"
                                 class="w-12 h-12 border-2 border-black bg-neo-black text-white flex items-center justify-center hover:bg-neo-white hover:text-black transition-all cursor-hover shadow-hard-sm"
                                 title="View More" data-en-title="View More" data-fr-title="Voir plus">
                                 <i class="ri-eye-line text-2xl"></i>
                             </a>
-                            <a href="https://github.com/Zineb2a/FullStack-Ecommerce" target="_blank"
+                            <a href="https://github.com/Zineb2a/Bambuu" target="_blank"
                                 class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-hover shadow-hard-sm"
                                 title="GitHub Repo" data-en-title="GitHub Repo" data-fr-title="Repo GitHub">
                                 <i class="ri-github-fill text-2xl"></i>
@@ -1484,8 +1574,8 @@
                     </div>
                 </article>
 
-                <!-- MemoryLens -->
                 <article class="reveal group bg-white border-4 border-black p-4 shadow-hard">
+                    <p class="work-number font-mono">04 /</p>
                     <div
                         class="bg-white border-2 border-black relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
                         <img src="Assets/images/memorylens.png" alt="MemoryLens - AI-Powered Memory Assistant"
@@ -1520,46 +1610,6 @@
                             <a href="https://github.com/Zineb2a" target="_blank"
                                 class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-hover shadow-hard-sm"
                                 title="GitHub Profile" data-en-title="GitHub Profile" data-fr-title="Profil GitHub">
-                                <i class="ri-github-fill text-2xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- F1 Race Analysis -->
-                <article class="reveal group bg-white border-4 border-black p-4 shadow-hard">
-                    <div
-                        class="bg-black border-2 border-black aspect-video relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
-                        <img src="Assets/images/f1.png" alt="F1 Race Analysis"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex justify-between items-start gap-4">
-                        <div class="flex-1 min-w-0">
-                            <div class="flex flex-wrap gap-2 mb-3 font-mono text-[10px] font-black uppercase">
-                                <span class="border-2 border-black bg-neo-green px-2 py-1">Analytics</span>
-                                <span class="border-2 border-black bg-white px-2 py-1">OpenF1 API</span>
-                                <span class="border-2 border-black bg-neo-yellow px-2 py-1">Jun 2024</span>
-                            </div>
-                            <h3
-                                class="text-2xl md:text-3xl font-black uppercase mb-2 group-hover:text-neo-green transition-colors glitch-hover">
-                                F1 Race Analysis</h3>
-                            <p class="font-mono text-sm mb-4" data-en="Data analysis pipeline exploring driver performance, tire degradation, pit stops, and race incidents from the Montreal Grand Prix 2024." data-fr="Pipeline d'analyse de données explorant les performances des pilotes, la dégradation des pneus, les arrêts et les incidents de course du Grand Prix de Montréal 2024.">Data analysis pipeline exploring driver performance, tire degradation, pit stops, and race incidents from the Montreal Grand Prix 2024.</p>
-                            <p class="font-mono text-xs mb-4 border-l-4 border-black pl-3" data-en="Outcome: produced clear comparisons between qualifying, race pace, and strategic choices." data-fr="Résultat : production de comparaisons claires entre qualifications, rythme de course et choix stratégiques.">Outcome: produced clear comparisons between qualifying, race pace, and strategic choices.</p>
-                            <div class="flex gap-2 font-mono text-xs font-bold flex-wrap">
-                                <span class="bg-neo-black text-white px-2 py-1">Python</span>
-                                <span class="bg-neo-black text-white px-2 py-1">Pandas</span>
-                                <span class="bg-neo-black text-white px-2 py-1">OpenF1 API</span>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <a href="projects.html#f1-race-analysis"
-                                class="w-12 h-12 border-2 border-black bg-neo-black text-white flex items-center justify-center hover:bg-neo-white hover:text-black transition-all cursor-hover shadow-hard-sm"
-                                title="View More" data-en-title="View More" data-fr-title="Voir plus">
-                                <i class="ri-eye-line text-2xl"></i>
-                            </a>
-                            <a href="https://github.com/Zineb2a/F1_Montreal2024_Analysis" target="_blank"
-                                class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-hover shadow-hard-sm"
-                                title="GitHub Repo" data-en-title="GitHub Repo" data-fr-title="Repo GitHub">
                                 <i class="ri-github-fill text-2xl"></i>
                             </a>
                         </div>
