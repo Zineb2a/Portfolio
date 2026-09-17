@@ -258,8 +258,7 @@
             transition: opacity 0.45s ease, transform 0.45s ease;
         }
 
-        .checkpoint-entry .checkpoint-card,
-        .checkpoint-entry .checkpoint-node {
+        .checkpoint-entry .checkpoint-card {
             transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease, box-shadow 0.45s ease;
         }
 
@@ -268,10 +267,23 @@
             transform: translateX(18px) scale(0.97);
         }
 
-        .checkpoint-entry .checkpoint-node {
-            opacity: 0;
-            transform: scale(0.35);
-            box-shadow: 0 0 0 0 rgba(255, 79, 163, 0);
+        #experience .checkpoint-node {
+            background: #FFFDFC !important;
+            box-shadow: none;
+            overflow: hidden;
+        }
+
+        body.dark-mode #experience .checkpoint-node {
+            background: #111827 !important;
+        }
+
+        #experience .checkpoint-node::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--checkpoint-color);
+            transform: scaleY(var(--checkpoint-progress, 0));
+            transform-origin: bottom;
         }
 
         .checkpoint-entry.active {
@@ -285,11 +297,27 @@
             animation: checkpointUnlock 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
+        @media (hover: hover) {
+            #experience .checkpoint-card {
+                transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease, box-shadow 0.45s ease, translate 0.2s ease;
+            }
+
+            #experience .checkpoint-entry.active .checkpoint-card:hover {
+                translate: -4px -4px;
+            }
+        }
+
         .checkpoint-entry.active .checkpoint-node {
             opacity: 1;
             transform: scale(1);
-            animation: checkpointPulse 0.8s ease-out;
         }
+
+        #experience .checkpoint-node.bg-neo-green { --checkpoint-color: #7DFF8A; }
+        #experience .checkpoint-node.bg-neo-pink { --checkpoint-color: #FF4FA3; }
+        #experience .checkpoint-node.bg-neo-red { --checkpoint-color: #FF4D6D; }
+        #experience .checkpoint-node.bg-neo-purple { --checkpoint-color: #B56CFF; }
+        #experience .checkpoint-node.bg-neo-blue { --checkpoint-color: #45C2FF; }
+        #experience .checkpoint-node.bg-neo-black { --checkpoint-color: #121212; }
 
         @keyframes checkpointUnlock {
             0% {
@@ -302,23 +330,6 @@
 
             100% {
                 transform: translateX(0) scale(1);
-            }
-        }
-
-        @keyframes checkpointPulse {
-            0% {
-                transform: scale(0.35);
-                box-shadow: 0 0 0 0 rgba(69, 194, 255, 0.7);
-            }
-
-            70% {
-                transform: scale(1.08);
-                box-shadow: 0 0 0 14px rgba(69, 194, 255, 0);
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(69, 194, 255, 0);
             }
         }
 
@@ -459,20 +470,6 @@
 
         body.dark-mode #experience .border-dashed {
             border-color: rgba(248, 250, 252, 0.3) !important;
-        }
-
-        body.dark-mode #projects {
-            background-color: #0f172a !important;
-            background-image:
-                linear-gradient(rgba(69, 194, 255, 0.09) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 79, 163, 0.09) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        body.dark-mode #projects h2 {
-            color: #f8fafc !important;
-            -webkit-text-stroke: 3px #45C2FF !important;
-            text-shadow: 4px 4px 0 rgba(2, 6, 23, 1) !important;
         }
 
         body.dark-mode .hero-software {
@@ -905,80 +902,125 @@
             #skills .stack-tab-btn { transition: none; }
         }
 
-        /* Selected work: production flagship, scoped to this section. */
-        #projects .work-header { margin-bottom: 36px; }
-        #projects .work-heading { font-size: clamp(36px, 6vw, 76px); line-height: 1; margin-bottom: 16px; overflow-wrap: anywhere; }
-        #projects .work-subheading { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
-        #projects .flagship { background: #FFFDFC; color: #121212; border: 4px solid #000; box-shadow: 8px 8px 0 #000; margin-bottom: 48px; }
-        #projects .flagship summary { list-style: none; cursor: pointer; }
-        #projects .flagship summary::-webkit-details-marker { display: none; }
-        #projects .flagship summary:focus-visible { outline: 4px solid #FF4FA3; outline-offset: 7px; }
-        #projects .flagship-masthead { display: flex; align-items: center; gap: 28px; padding: 28px 32px; border-bottom: 3px solid #000; }
-        #projects .flagship-number { font-size: clamp(72px, 9vw, 128px); line-height: 0.9; font-weight: 800; letter-spacing: -0.08em; color: #45C2FF; -webkit-text-stroke: 2px #000; }
-        #projects .flagship-label { font-size: 11px; font-weight: 700; letter-spacing: 0.055em; line-height: 1.6; margin-bottom: 10px; }
-        #projects .flagship-title { font-size: clamp(30px, 4.2vw, 56px); line-height: 1; font-weight: 800; text-transform: uppercase; letter-spacing: -0.045em; }
-        #projects .flagship-proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 3px solid #000; padding: 20px 32px; gap: 18px; }
-        #projects .flagship-proof li { font-size: 11px; font-weight: 700; line-height: 1.4; }
-        #projects .flagship-proof strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 28px; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 6px; }
-        #projects .flagship-proof li:first-child strong { text-decoration: underline; text-decoration-color: #FF4FA3; text-decoration-thickness: 5px; text-underline-offset: 3px; }
-        #projects .flagship-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; padding: 32px; }
-        #projects .flagship-main > * { min-width: 0; }
-        #projects .flagship-visual { display: flex; flex-direction: column; gap: 14px; }
-        #projects .flagship-placeholder { width: 100%; min-width: 0; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; min-height: 300px; aspect-ratio: 4 / 3; border: 2px solid #000; background-color: #f7f0f4; background-image: linear-gradient(#ead6e2 1px, transparent 1px), linear-gradient(90deg, #ead6e2 1px, transparent 1px); background-size: 32px 32px; padding: 24px; }
-        #projects .flagship-placeholder::before, #projects .flagship-placeholder::after { content: ''; position: absolute; width: 24px; height: 24px; border-color: #121212; border-style: solid; }
-        #projects .flagship-placeholder::before { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
-        #projects .flagship-placeholder::after { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
-        #projects .flagship-image-label { max-width: 100%; overflow-wrap: anywhere; border: 2px solid #000; box-shadow: 3px 3px 0 #000; background: #FFE600; color: #121212; padding: 8px 12px; font-size: 11px; font-weight: 700; text-align: center; }
-        #projects .flagship-placeholder-name { font-size: clamp(26px, 3vw, 40px); font-weight: 700; line-height: 1.05; letter-spacing: -0.04em; text-align: center; }
-        #projects .flagship-caption { font-size: 10px; line-height: 1.6; }
-        #projects .flagship-headline { font-size: clamp(26px, 2.7vw, 36px); line-height: 1.12; font-weight: 700; letter-spacing: -0.035em; margin-bottom: 18px; }
-        #projects .flagship-description { font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
-        #projects .flagship-technical { display: grid; gap: 16px; }
-        #projects .flagship-technical dt { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 5px; }
-        #projects .flagship-technical dd { font-size: 14px; line-height: 1.65; }
-        #projects .flagship-technical .flagship-core { font-weight: 700; font-size: 16px; }
-        #projects .flagship-scope { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin: 0 32px; padding: 24px 0; border-top: 2px solid #000; }
-        #projects .flagship-scope dt { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
-        #projects .flagship-scope dd { font-size: 12px; line-height: 1.8; }
-        #projects .flagship-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 0 32px 28px; }
-        #projects .flagship-cta { display: inline-flex; align-items: center; min-height: 52px; padding: 14px 20px; background: #121212; color: #FFFDFC; border: 2px solid #000; box-shadow: 4px 4px 0 #45C2FF; font-size: 13px; font-weight: 700; transition: transform 150ms ease, box-shadow 150ms ease; }
-        #projects .flagship summary:hover .flagship-cta { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #45C2FF; }
-        #projects .flagship-status { font-size: 10px; }
-        #projects .flagship-notice { padding: 20px 32px; border-top: 3px solid #000; background: #45C2FF; color: #121212; font-size: 14px; }
-        #projects .work-number { font-size: 12px; font-weight: 700; margin-bottom: 12px; }
-        body.dark-mode #projects .work-subheading { color: #FFFDFC; }
-        body.dark-mode #projects .flagship { background: #241e27; color: #FFFDFC; }
-        body.dark-mode #projects .flagship-placeholder { color: #121212; }
-        body.dark-mode #projects .flagship-cta { border-color: #FFFDFC; }
-        @media (max-width: 900px) {
-            #projects .flagship-main { gap: 24px; padding: 24px; }
-            #projects .flagship-placeholder { min-height: 250px; }
-            #projects .flagship-masthead { padding: 24px; gap: 20px; }
-            #projects .flagship-proof { padding: 20px 24px; }
-            #projects .flagship-scope { margin: 0 24px; gap: 20px; }
-            #projects .flagship-footer { padding: 0 24px 24px; }
+        /* Selected work: editorial variation within one theme-aware design system. */
+        #projects {
+            --work-paper: #FFFDFC;
+            --work-surface: #FFFDFC;
+            --work-ink: #121212;
+            --work-muted: #564b52;
+            --work-line: #121212;
+            --work-soft-line: #d7c5cf;
+            --work-shadow: #000;
+            --work-grid: #f0d6e6;
+            padding: 64px 24px 72px;
+            color: var(--work-ink);
+            background-color: var(--work-paper);
+            background-image: linear-gradient(to right, var(--work-grid) 1px, transparent 1px), linear-gradient(to bottom, var(--work-grid) 1px, transparent 1px);
+            background-size: 80px 80px;
+            border-top: 4px solid var(--work-line);
+        }
+        body.dark-mode #projects {
+            --work-paper: #1b171e;
+            --work-surface: #252329;
+            --work-ink: #FFFDFC;
+            --work-muted: #d0c3cc;
+            --work-line: #857580;
+            --work-soft-line: #655460;
+            --work-grid: rgba(255,79,163,.10);
+        }
+        #projects .work-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 36px; border-bottom: 3px solid var(--work-line); padding-bottom: 20px; }
+        #projects .work-heading { font-size: clamp(34px, 5.5vw, 68px); line-height: 1; font-weight: 800; letter-spacing: -0.055em; overflow-wrap: anywhere; }
+        #projects .work-subheading { font-size: 11px; font-weight: 700; letter-spacing: 0.035em; }
+        #projects .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; align-items: start; }
+        #projects .project-card { min-width: 0; border: 2px solid var(--work-line); border-top: 5px solid var(--project-accent); background: var(--work-surface); box-shadow: 6px 6px 0 var(--work-shadow); transition: translate 180ms ease, box-shadow 180ms ease; }
+        #projects .project-media { position: relative; aspect-ratio: 16 / 9; padding: 10px; display: grid; place-items: center; background: var(--project-tint); border-bottom: 1px solid var(--work-soft-line); overflow: hidden; }
+        #projects .project-media img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; transition: transform 180ms ease; }
+        body.dark-mode #projects .project-media { background: #38303a; }
+        body.dark-mode #projects .project-2 .project-media { background: #203c49; }
+        body.dark-mode #projects .project-3 .project-media { background: #4a283d; }
+        body.dark-mode #projects .project-5 .project-media { background: #213943; }
+        #projects .project-body { padding: 20px; min-width: 0; }
+        #projects .project-heading { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+        #projects .project-index { font-size: 38px; font-weight: 800; line-height: 1; letter-spacing: -0.06em; color: var(--project-accent); -webkit-text-stroke: 1px #121212; }
+        body.dark-mode #projects .project-index { -webkit-text-stroke: 0; }
+        #projects .project-title { font-size: clamp(28px, 2.6vw, 34px); font-weight: 800; line-height: 1.05; letter-spacing: -0.045em; }
+        #projects .project-metadata { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-bottom: 10px; font-size: 11px; font-weight: 700; line-height: 1.5; text-transform: uppercase; color: var(--work-muted); }
+        #projects .project-metadata > span { padding: 0; }
+        #projects .project-description { font-size: 16px; line-height: 1.45; margin-bottom: 10px; }
+        #projects .project-detail { font-size: 13px; line-height: 1.5; color: var(--work-muted); margin-bottom: 12px; padding-left: 12px; border-left: 3px solid var(--project-accent); }
+        #projects .project-proof { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 12px 0; font-size: 11px; font-weight: 700; line-height: 1.5; }
+        #projects .project-proof > span { border-bottom: 3px solid #45C2FF; padding-bottom: 3px; }
+        #projects .project-tech { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 12px 0; font-size: 12px; font-weight: 700; line-height: 1.7; }
+        #projects .project-tech > span:not(:last-child)::after { content: ' /'; padding-left: 10px; color: var(--work-muted); font-weight: 400; }
+        #projects .project-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+        #projects .project-action { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 14px; border: 2px solid var(--work-line); background: var(--work-surface); color: var(--work-ink); box-shadow: 3px 3px 0 var(--work-shadow); font-size: 11px; font-weight: 700; text-decoration: none; transition: transform 150ms ease, box-shadow 150ms ease; }
+        #projects .project-action-primary { background: #121212; color: #FFFDFC; }
+        body.dark-mode #projects .project-action-primary { background: var(--project-accent); color: #121212; border-color: #121212; }
+        #projects .project-action:hover { background: var(--project-accent); color: #121212; border-color: #121212; transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--work-shadow); }
+        #projects a:focus-visible { outline: 3px solid #FF4FA3; outline-offset: 5px; }
+        #projects .project-coming { margin-top: 12px; font-size: 11px; font-weight: 700; color: var(--work-muted); }
+        /* The current production project is a compact horizontal opening chapter. */
+        #projects .project-1 { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-width: 3px; border-top-width: 5px; }
+        #projects .project-1 .project-media { aspect-ratio: auto; padding: 8px; border-bottom: 0; border-right: 1px solid var(--work-soft-line); background: var(--project-tint); }
+        body.dark-mode #projects .project-1 .project-media { background: #494325; }
+        #projects .project-1 .project-body { padding: 24px; }
+        #projects .project-1 .project-metadata > span:first-child { background: #FFE600; color: #121212; padding: 3px 7px; }
+        /* Leadership and the hackathon result have distinct visual emphasis. */
+        #projects .project-2 .project-metadata > span:nth-child(2) { color: var(--work-ink); font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 800; text-decoration: underline; text-decoration-color: #45C2FF; text-decoration-thickness: 4px; text-underline-offset: 4px; }
+        #projects .project-2 .project-media, #projects .project-3 .project-media { height: 210px; aspect-ratio: auto; }
+        #projects .project-3 { margin-top: 12px; }
+        #projects .project-role { font-size: 11px; font-weight: 700; color: var(--work-muted); margin: 10px 0; }
+        #projects .project-3 .project-metadata > span:first-child { background: #FFE600; color: #121212; border: 2px solid #000; box-shadow: 3px 3px 0 #000; padding: 3px 8px; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 800; transform: rotate(-2deg); margin: -34px 0 4px auto; position: relative; }
+        #projects .project-3 .project-metadata { gap: 6px 12px; }
+        #projects .project-3 .project-metadata > span:nth-child(2) { flex-basis: 100%; }
+        #projects .project-4, #projects .project-5 { border-width: 1px; border-top-width: 4px; box-shadow: 4px 4px 0 var(--work-shadow); }
+        #projects .project-4 .project-metadata > span:first-child { box-shadow: inset 0 -3px #FFE600; color: var(--work-ink); }
+        #projects .project-4 .project-media { padding: 10px; background: #f2eeea; }
+        body.dark-mode #projects .project-4 .project-media { background: #3b372b; }
+        #projects .project-5 .project-media { aspect-ratio: 16 / 10; padding: 14px; }
+        #projects .project-5 .project-metadata > span:first-child { background: #45C2FF; color: #121212; padding: 3px 8px; }
+        #projects .project-5 .project-metadata > span:nth-child(2) { color: var(--work-ink); font-size: 13px; }
+        #projects .project-6 { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); border-width: 3px; border-top-width: 5px; }
+        #projects .project-6 .project-media { aspect-ratio: auto; min-height: 300px; border-bottom: 0; border-right: 1px solid var(--work-soft-line); padding: 12px; }
+        #projects .project-6 .project-metadata > span:first-child { background: #FF4FA3; color: #121212; padding: 3px 8px; }
+        body.dark-mode #projects .project-6 .project-media { background: #432c3b; }
+        #projects .work-archive { margin-top: 40px; text-align: center; --project-accent: #FFE600; }
+        @media (hover: hover) {
+            #projects .project-card:hover { translate: -3px -3px; box-shadow: 9px 9px 0 var(--work-shadow); }
+            #projects .project-card:hover .project-media img { transform: scale(1.015); }
+        }
+        @media (min-width: 701px) and (max-width: 1000px) {
+            #projects .project-1 { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+            #projects .project-body, #projects .project-1 .project-body { padding: 20px; }
+            #projects .project-heading { gap: 10px; }
+            #projects .project-index { font-size: 34px; }
         }
         @media (max-width: 700px) {
-            #projects .work-heading { -webkit-text-stroke-width: 1.5px !important; }
-            #projects .flagship { box-shadow: 5px 5px 0 #000; }
-            #projects .flagship-masthead { align-items: flex-start; gap: 16px; padding: 20px 16px; }
-            #projects .flagship-number { font-size: 64px; }
-            #projects .flagship-label { font-size: 9px; margin-bottom: 8px; }
-            #projects .flagship-title { font-size: 30px; }
-            #projects .flagship-proof { grid-template-columns: 1fr 1fr; gap: 20px 16px; padding: 20px 16px; }
-            #projects .flagship-proof strong { font-size: clamp(18px, 5.6vw, 26px); }
-            #projects .flagship-proof li { font-size: 10px; }
-            #projects .flagship-main { grid-template-columns: minmax(0, 1fr); padding: 20px 16px; gap: 24px; }
-            #projects .flagship-placeholder { min-height: 190px; aspect-ratio: 16 / 10; }
-            #projects .flagship-headline { font-size: 28px; }
-            #projects .flagship-scope { grid-template-columns: 1fr; margin: 0 16px; gap: 16px; padding: 20px 0; }
-            #projects .flagship-scope dd { font-size: 11px; }
-            #projects .flagship-footer { padding: 0 16px 20px; gap: 12px; }
-            #projects .flagship-cta { font-size: 11px; padding: 14px; }
-            #projects .flagship-notice { padding: 16px; }
+            #projects { padding: 44px 20px 52px; }
+            #projects .work-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+            #projects .work-header { margin-bottom: 28px; gap: 14px; }
+            #projects .work-subheading { font-size: 10px; }
+            #projects .project-1, #projects .project-6 { display: block; }
+            #projects .project-1 .project-media, #projects .project-6 .project-media { border-right: 0; border-bottom: 1px solid var(--work-soft-line); }
+            #projects .project-1 .project-media { aspect-ratio: 16 / 9; }
+            #projects .project-6 .project-media { min-height: 0; aspect-ratio: 16 / 10; padding: 12px; }
+            #projects .project-3 { margin-top: 0; }
+            #projects .project-media { padding: 10px; }
+            #projects .project-2 .project-media, #projects .project-3 .project-media { height: auto; aspect-ratio: 16 / 9; }
+            #projects .project-body, #projects .project-1 .project-body { padding: 20px; }
+            #projects .project-heading { gap: 10px; }
+            #projects .project-title { font-size: 28px; }
+            #projects .project-index { font-size: 34px; }
+            #projects .project-description { font-size: 15px; }
+            #projects .project-metadata { font-size: 10px; }
+            #projects .project-tech { font-size: 11px; gap: 6px 9px; }
+            #projects .project-tech > span:not(:last-child)::after { padding-left: 6px; }
+            #projects .project-3 .project-metadata > span:first-child { font-size: 16px; margin-top: -30px; }
         }
         @media (prefers-reduced-motion: reduce) {
-            #projects .flagship-cta { transition: none; }
+            #projects .project-card, #projects .project-action, #projects .project-media img { transition: none; }
+            #projects .project-card:hover { translate: none; }
+            #projects .project-card:hover .project-media img { transform: none; }
         }
 
         /* Glitch Effect on Hover */
@@ -1433,196 +1475,170 @@
             </div>
         </div>
     </section>
-    <section id="projects" class="min-h-[85svh] py-12 bg-neo-yellow border-t-4 border-black px-4 overflow-hidden">
+    <section id="projects" aria-labelledby="work-heading">
         <div class="max-w-7xl mx-auto">
             <header class="work-header">
-                <h2 class="work-heading font-black uppercase tracking-tighter text-white drop-shadow-[4px_4px_0_rgba(0,0,0,1)]" style="-webkit-text-stroke: 3px black;">
-                    <span data-en="SELECTED_WORK" data-fr="PROJETS_CHOISIS">SELECTED_WORK</span>
-                </h2>
+                <h2 id="work-heading" class="work-heading"><span data-en="SELECTED_WORK" data-fr="PROJETS_CHOISIS">SELECTED_WORK</span></h2>
                 <p class="work-subheading font-mono" data-en="/ BUILT · LED · SHIPPED" data-fr="/ CONÇUS · PILOTÉS · LIVRÉS">/ BUILT · LED · SHIPPED</p>
             </header>
-
-            <article id="atelier-magique" class="reveal">
-                <details class="flagship">
-                    <summary class="cursor-hover">
-                        <div class="flagship-masthead">
-                            <span class="flagship-number" aria-hidden="true">01</span>
-                            <div>
-                                <p class="flagship-label font-mono"><span data-en="PRODUCTION SYSTEM · FREELANCE · 2026—NOW" data-fr="PLATEFORME EN PRODUCTION · FREELANCE · DEPUIS 2026">PRODUCTION SYSTEM · FREELANCE · 2026—NOW</span></p>
-                                <h3 class="flagship-title">Atelier Magique</h3>
-                            </div>
-                        </div>
-                        <ul class="flagship-proof font-mono">
-                            <li><strong>LIVE</strong><span data-en="PRODUCTION" data-fr="EN PRODUCTION">PRODUCTION</span></li>
-                            <li><strong>268+</strong><span data-en="PRODUCTS" data-fr="PRODUITS">PRODUCTS</span></li>
-                            <li><strong>3D SECURE</strong><span data-en="PAYMENTS" data-fr="PAIEMENTS">PAYMENTS</span></li>
-                            <li><strong><span data-en="AI-ASSISTED" data-fr="ASSISTÉES PAR L’IA">AI-ASSISTED</span></strong><span data-en="OPERATIONS" data-fr="OPÉRATIONS">OPERATIONS</span></li>
-                        </ul>
-                        <div class="flagship-main">
-                            <div class="flagship-visual">
-                                <!-- Replace this placeholder with a real Atelier Magique product screenshot when available. -->
-                                <div class="flagship-placeholder">
-                                    <span class="flagship-placeholder-name">ATELIER<br>MAGIQUE</span>
-                                    <span class="flagship-image-label font-mono"><span data-en="PRODUCT SCREENSHOT COMING SOON" data-fr="CAPTURE DU PRODUIT À VENIR">PRODUCT SCREENSHOT COMING SOON</span></span>
-                                </div>
-                                <p class="flagship-caption font-mono"><span data-en="WORDPRESS / WOOCOMMERCE → CUSTOM PRODUCTION PLATFORM" data-fr="WORDPRESS / WOOCOMMERCE → PLATEFORME SUR MESURE">WORDPRESS / WOOCOMMERCE → CUSTOM PRODUCTION PLATFORM</span></p>
-                            </div>
-                            <div>
-                                <p class="flagship-headline"><span data-en="Rebuilding a live e-commerce business from the ground up." data-fr="Repenser de bout en bout la plateforme d’un commerce en ligne en activité.">Rebuilding a live e-commerce business from the ground up.</span></p>
-                                <p class="flagship-description"><span data-en="End-to-end migration from WordPress/WooCommerce to a modern production platform covering commerce, payments, infrastructure, automation and AI-assisted operations." data-fr="Migration complète de WordPress/WooCommerce vers une plateforme moderne en production : commerce, paiements, infrastructure, automatisation et opérations assistées par l’IA.">End-to-end migration from WordPress/WooCommerce to a modern production platform covering commerce, payments, infrastructure, automation and AI-assisted operations.</span></p>
-                                <dl class="flagship-technical">
-                                    <div><dt class="font-mono"><span data-en="ROLE" data-fr="RÔLE">ROLE</span></dt><dd><span data-en="Freelance Software Engineer" data-fr="Ingénieure logicielle freelance">Freelance Software Engineer</span></dd></div>
-                                    <div><dt class="font-mono"><span data-en="CORE STACK" data-fr="SOCLE TECHNIQUE">CORE STACK</span></dt><dd class="flagship-core">Next.js · Node.js/Express · PostgreSQL · Prisma</dd></div>
-                                    <div><dt class="font-mono"><span data-en="ADDITIONAL SYSTEMS" data-fr="SYSTÈMES INTÉGRÉS">ADDITIONAL SYSTEMS</span></dt><dd><span data-en="CMI Payments · Cloudinary · Railway · GA4 · Transactional Email · AI Workflows" data-fr="Paiements CMI · Cloudinary · Railway · GA4 · E-mails transactionnels · Workflows IA">CMI Payments · Cloudinary · Railway · GA4 · Transactional Email · AI Workflows</span></dd></div>
-                                </dl>
-                            </div>
-                        </div>
-                        <dl class="flagship-scope">
-                            <div><dt class="font-mono"><span data-en="01 / COMMERCE" data-fr="01 / COMMERCE">01 / COMMERCE</span></dt><dd><span data-en="Catalog &amp; search · Checkout · Orders · Promotions · Gift cards · Registries" data-fr="Catalogue et recherche · Commandes · Promotions · Cartes-cadeaux · Listes de cadeaux">Catalog &amp; search · Checkout · Orders · Promotions · Gift cards · Registries</span></dd></div>
-                            <div><dt class="font-mono"><span data-en="02 / SYSTEMS" data-fr="02 / SYSTÈMES">02 / SYSTEMS</span></dt><dd><span data-en="Authentication · Payments · Database migrations · Production infrastructure" data-fr="Authentification · Paiements · Migrations de données · Infrastructure de production">Authentication · Payments · Database migrations · Production infrastructure</span></dd></div>
-                            <div><dt class="font-mono"><span data-en="03 / OPERATIONS" data-fr="03 / OPÉRATIONS">03 / OPERATIONS</span></dt><dd><span data-en="Email · Admin workflows · Analytics · SEO migration · Integrations · AI" data-fr="E-mails · Administration · Analytique · Migration SEO · Intégrations · IA">Email · Admin workflows · Analytics · SEO migration · Integrations · AI</span></dd></div>
-                        </dl>
-                        <div class="flagship-footer">
-                            <span class="flagship-cta font-mono"><span data-en="EXPLORE CASE STUDY →" data-fr="DÉCOUVRIR LE PROJET →">EXPLORE CASE STUDY →</span></span>
-                            <span class="flagship-status font-mono"><span data-en="CASE STUDY IN PROGRESS" data-fr="ÉTUDE DE CAS EN PRÉPARATION">CASE STUDY IN PROGRESS</span></span>
-                        </div>
-                    </summary>
-                    <p class="flagship-notice"><span data-en="The full case study is coming soon." data-fr="L’étude de cas complète sera bientôt disponible.">The full case study is coming soon.</span></p>
-                </details>
-            </article>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <article class="reveal group bg-white border-4 border-black p-4 shadow-hard">
-                    <p class="work-number font-mono">02 /</p>
-                    <div
-                        class="bg-white border-2 border-black relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
+            <div class="work-grid">
+                <article class="project-card project-1 reveal" style="--project-accent: #FFE600; --project-tint: #fff9cf;" aria-labelledby="project-title-1">
+                    <div class="project-media">
+                        <img src="ateliermagique.png" alt="Atelier Magique — live e-commerce storefront"
+                            class="project-image" width="2966" height="1506">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-metadata font-mono"><span>PRODUCTION</span><span>FREELANCE</span><span><span data-en="2026—NOW" data-fr="DEPUIS 2026">2026—NOW</span></span></div>
+                        <div class="project-heading"><span class="project-index" aria-hidden="true">01</span><h3 id="project-title-1" class="project-title">Atelier Magique</h3></div>
+                        <p class="project-description" data-en="Production rebuild of a live e-commerce platform — from WordPress/WooCommerce to a modern stack spanning payments, commerce, infrastructure and automation." data-fr="Refonte d’une plateforme e-commerce en production : migration de WordPress/WooCommerce vers un socle moderne pour le commerce, les paiements, l’infrastructure et l’automatisation.">Production rebuild of a live e-commerce platform — from WordPress/WooCommerce to a modern stack spanning payments, commerce, infrastructure and automation.</p>
+                        <div class="project-proof font-mono"><span data-en="LIVE PRODUCTION" data-fr="EN PRODUCTION">LIVE PRODUCTION</span><span data-en="268+ PRODUCTS" data-fr="268+ PRODUITS">268+ PRODUCTS</span><span>3D SECURE</span></div>
+                        <p class="project-detail" data-en="Freelance Software Engineer" data-fr="Ingénieure logicielle freelance">Freelance Software Engineer</p>
+                        <div class="project-tech font-mono"><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Prisma</span></div>
+                        <p class="project-coming font-mono" data-en="CASE STUDY COMING SOON →" data-fr="ÉTUDE DE CAS À VENIR →">CASE STUDY COMING SOON →</p>
+                    </div>
+                </article>
+                <article class="project-card project-2 reveal" style="--project-accent: #45C2FF; --project-tint: #e6f6ff;" aria-labelledby="project-title-2">
+                    <div class="project-media">
                         <img src="Assets/images/foodflow.png" alt="FoodFlow - Surplus Food Redistribution Platform"
-                            class="w-full h-auto object-contain bg-white">
+                            class="project-image">
                     </div>
-                    <div class="flex justify-between items-start gap-4">
-                        <div class="flex-1 min-w-0">
-                            <div class="flex flex-wrap gap-2 mb-3 font-mono text-[10px] font-black uppercase">
-                                <span class="border-2 border-black bg-neo-pink px-2 py-1">Capstone</span>
-                                <span class="border-2 border-black bg-neo-blue px-2 py-1">Team of 11</span>
-                                <span class="border-2 border-black bg-white px-2 py-1">PM + Frontend Lead</span>
+                    <div class="project-body">
+                        <div class="project-metadata font-mono">
+                                <span>Capstone</span>
+                                <span>Team of 11</span>
+                                <span>PM + Frontend Lead</span>
                             </div>
-                            <h3
-                                class="text-2xl md:text-3xl font-black uppercase mb-2 group-hover:text-neo-purple transition-colors glitch-hover">
-                                FoodFlow</h3>
-                            <p class="font-mono text-sm mb-4" data-en="Real-time platform connecting restaurants, grocery stores, bakeries, and event organizers with verified charities, shelters, and community kitchens to redistribute surplus food." data-fr="Plateforme en temps réel reliant restaurants, épiceries, boulangeries et organisateurs d'événements à des associations, refuges et cuisines communautaires vérifiés pour redistribuer les surplus alimentaires.">Real-time platform connecting restaurants, grocery stores, bakeries, and event organizers with verified charities, shelters, and community kitchens to redistribute surplus food.</p>
-                            <p class="font-mono text-xs mb-4 border-l-4 border-black pl-3" data-en="Role: Project Manager and frontend lead for an 11-person capstone team building dashboards, role-based flows, real-time coordination, and measurable social impact." data-fr="Rôle : Project Manager et lead front-end d'une équipe capstone de 11 personnes, en charge des tableaux de bord, des parcours par rôle, de la coordination temps réel et d'un impact social mesurable.">Role: Project Manager and frontend lead for an 11-person capstone team building dashboards, role-based flows, real-time coordination, and measurable social impact.</p>
-                            <div class="flex gap-2 font-mono text-xs font-bold flex-wrap">
-                                <span class="bg-neo-black text-white px-2 py-1">React</span>
-                                <span class="bg-neo-black text-white px-2 py-1">Spring Boot</span>
-                                <span class="bg-neo-black text-white px-2 py-1">PostgreSQL</span>
-                                <span class="bg-neo-black text-white px-2 py-1">WebSockets</span>
-                                <span class="bg-neo-black text-white px-2 py-1">Google Maps</span>
+                        <div class="project-heading"><span class="project-index" aria-hidden="true">02</span><h3 id="project-title-2" class="project-title">FoodFlow</h3></div>
+                        <p class="project-description" data-en="Real-time platform connecting food businesses with community organizations to redistribute surplus food." data-fr="Plateforme en temps réel qui relie les commerces alimentaires aux associations pour redistribuer les surplus.">Real-time platform connecting food businesses with community organizations to redistribute surplus food.</p>
+
+                        <p class="project-detail" data-en="Led frontend delivery and project coordination across an 11-person capstone team." data-fr="Pilotage du frontend et coordination d’une équipe de 11 personnes pour le projet de fin d’études.">Led frontend delivery and project coordination across an 11-person capstone team.</p>
+                        <div class="project-tech font-mono">
+                                <span>React</span>
+                                <span>Spring Boot</span>
+                                <span>PostgreSQL</span>
+                                <span>WebSockets</span>
+                                <span>Google Maps</span>
                             </div>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <a href="https://foodflow-org.up.railway.app/" target="_blank"
-                                class="w-12 h-12 border-2 border-black bg-neo-black text-white flex items-center justify-center hover:bg-neo-white hover:text-black transition-all cursor-hover shadow-hard-sm"
-                                title="Live Demo" data-en-title="Live Demo" data-fr-title="Démo Live">
-                                <i class="ri-eye-line text-2xl"></i>
-                            </a>
-                            <a href="https://github.com/SOEN490-CAPSTONE2026/FoodFlow" target="_blank"
-                                class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-hover shadow-hard-sm"
-                                title="GitHub Repo" data-en-title="GitHub Repo" data-fr-title="Repo GitHub">
-                                <i class="ri-github-fill text-2xl"></i>
-                            </a>
-                        </div>
+                        <div class="project-actions font-mono"><a href="https://foodflow-org.up.railway.app/" target="_blank"
+                                class="project-action project-action-primary cursor-hover"
+                                title="Live Demo" data-en-title="Live Demo" data-fr-title="Démo Live" rel="noopener noreferrer"><span data-en="VIEW LIVE ↗" data-fr="VOIR LE SITE ↗">VIEW LIVE ↗</span></a><a href="https://github.com/SOEN490-CAPSTONE2026/FoodFlow" target="_blank"
+                                class="project-action  cursor-hover"
+                                title="GitHub Repo" data-en-title="GitHub Repo" data-fr-title="Repo GitHub" rel="noopener noreferrer"><span data-en="GITHUB ↗" data-fr="GITHUB ↗">GITHUB ↗</span></a></div>
                     </div>
                 </article>
-
-                <article class="reveal group bg-white border-4 border-black p-4 shadow-hard self-start">
-                    <p class="work-number font-mono">03 /</p>
-                    <div
-                        class="bg-white border-2 border-black relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
+                <article class="project-card project-3 reveal" style="--project-accent: #FF4FA3; --project-tint: #ffe5f2;" aria-labelledby="project-title-3">
+                    <div class="project-media">
                         <img src="Assets/images/bambu.png" alt="Bambuu - Student Finance App"
-                            class="w-full h-auto object-contain">
+                            class="project-image">
                     </div>
-                    <div class="flex justify-between items-start gap-4">
-                        <div class="flex-1 min-w-0">
-                            <div class="flex flex-wrap gap-2 mb-3 font-mono text-[10px] font-black uppercase">
-                                <span class="border-2 border-black bg-neo-green px-2 py-1">Hackathon Winner</span>
-                                <span class="border-2 border-black bg-neo-blue px-2 py-1">Team of 4</span>
-                                <span class="border-2 border-black bg-white px-2 py-1">PM + Full-Stack</span>
+                    <div class="project-body">
+                        <div class="project-metadata font-mono">
+                                <span><i class="ri-trophy-line" aria-hidden="true"></i> <span data-en="1ST PLACE" data-fr="1RE PLACE">1ST PLACE</span></span><span><span data-en="FINTECH HACKATHON" data-fr="HACKATHON FINTECH">FINTECH HACKATHON</span></span>
+
                             </div>
-                            <h3
-                                class="text-2xl md:text-3xl font-black uppercase mb-2 group-hover:text-neo-green transition-colors glitch-hover">
-                                Bambuu</h3>
-                            <p class="font-mono text-sm mb-4" data-en="Student-focused personal finance app built for irregular income, subscriptions, savings goals, AI smart insights, and real student money habits." data-fr="Application de finances personnelles pensée pour les étudiants avec revenus irréguliers, abonnements, objectifs d'épargne, smart insights IA et habitudes financières étudiantes réelles.">Student-focused personal finance app built for irregular income, subscriptions, savings goals, AI smart insights, and real student money habits.</p>
-                            <p class="font-mono text-xs mb-4 border-l-4 border-black pl-3" data-en="Outcome: product management hackathon winner featuring student discount detection, AI-powered smart insights, and investment education." data-fr="Résultat : projet gagnant d'un hackathon de product management intégrant détection de réductions étudiantes, smart insights pilotés par l'IA et éducation à l'investissement.">Outcome: product management hackathon winner featuring student discount detection, AI-powered smart insights, and investment education.</p>
-                            <div class="flex gap-2 font-mono text-xs font-bold flex-wrap">
-                                <span class="bg-neo-black text-white px-2 py-1">React</span>
-                                <span class="bg-neo-black text-white px-2 py-1">TypeScript</span>
-                                <span class="bg-neo-black text-white px-2 py-1">Supabase</span>
+                        <div class="project-heading"><span class="project-index" aria-hidden="true">03</span><h3 id="project-title-3" class="project-title">Bambuu</h3></div>
+                        <p class="project-description" data-en="Personal finance app for students, combining budgeting, subscriptions, savings goals and AI-powered insights." data-fr="Application de finances personnelles pour les étudiants : budget, abonnements, objectifs d’épargne et conseils personnalisés par l’IA.">Personal finance app for students, combining budgeting, subscriptions, savings goals and AI-powered insights.</p>
+                        <p class="project-role font-mono">TEAM OF 4 · PM + FULL-STACK</p>
+
+
+                        <div class="project-tech font-mono">
+                                <span>React</span>
+                                <span>TypeScript</span>
+                                <span>Supabase</span>
                             </div>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <a href="https://bambuu.me/" target="_blank"
-                                class="w-12 h-12 border-2 border-black bg-neo-black text-white flex items-center justify-center hover:bg-neo-white hover:text-black transition-all cursor-hover shadow-hard-sm"
-                                title="View More" data-en-title="View More" data-fr-title="Voir plus">
-                                <i class="ri-eye-line text-2xl"></i>
-                            </a>
-                            <a href="https://github.com/Zineb2a/Bambuu" target="_blank"
-                                class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-hover shadow-hard-sm"
-                                title="GitHub Repo" data-en-title="GitHub Repo" data-fr-title="Repo GitHub">
-                                <i class="ri-github-fill text-2xl"></i>
-                            </a>
-                        </div>
+                        <div class="project-actions font-mono"><a href="https://bambuu.me/" target="_blank"
+                                class="project-action project-action-primary cursor-hover"
+                                title="View More" data-en-title="View More" data-fr-title="Voir plus" rel="noopener noreferrer"><span data-en="VIEW LIVE ↗" data-fr="VOIR LE SITE ↗">VIEW LIVE ↗</span></a><a href="https://github.com/Zineb2a/Bambuu" target="_blank"
+                                class="project-action  cursor-hover"
+                                title="GitHub Repo" data-en-title="GitHub Repo" data-fr-title="Repo GitHub" rel="noopener noreferrer"><span data-en="GITHUB ↗" data-fr="GITHUB ↗">GITHUB ↗</span></a></div>
                     </div>
                 </article>
+                <article class="project-card project-4 reveal" style="--project-accent: #FFE600; --project-tint: #fff9cf;" aria-labelledby="project-title-4">
+                    <div class="project-media">
+                        <img src="Assets/images/Aura.png" alt="Aura - Full-Stack E-commerce Platform"
+                            class="project-image">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-metadata font-mono">
+                                <span>Full-Stack</span>
+                                <span>E-commerce</span>
+                                <span>Dec 2024</span>
+                            </div>
+                        <div class="project-heading"><span class="project-index" aria-hidden="true">04</span><h3 id="project-title-4" class="project-title">Aura</h3></div>
+                        <p class="project-description" data-en="Full-stack e-commerce platform for artisanal handcrafted products with a customer storefront, admin panel, and backend API." data-fr="Plateforme e-commerce full-stack pour des produits artisanaux faits main avec boutique client, panneau admin et API backend.">Full-stack e-commerce platform for artisanal handcrafted products with a customer storefront, admin panel, and backend API.</p>
 
-                <article class="reveal group bg-white border-4 border-black p-4 shadow-hard">
-                    <p class="work-number font-mono">04 /</p>
-                    <div
-                        class="bg-white border-2 border-black relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
+                        <p class="project-detail" data-en="Built storefront, authentication, checkout, inventory and admin workflows." data-fr="Développement de la boutique, de l’authentification, du parcours d’achat, de la gestion des stocks et de l’administration.">Built storefront, authentication, checkout, inventory and admin workflows.</p>
+                        <div class="project-tech font-mono">
+                                <span>React</span>
+                                <span>Express</span>
+                                <span>MongoDB</span>
+                            </div>
+                        <div class="project-actions font-mono"><a href="projects.html#aura"
+                                class="project-action project-action-primary cursor-hover"
+                                title="View More" data-en-title="View More" data-fr-title="Voir plus"><span data-en="PROJECT DETAILS →" data-fr="DÉTAILS DU PROJET →">PROJECT DETAILS →</span></a><a href="https://github.com/Zineb2a/FullStack-Ecommerce" target="_blank"
+                                class="project-action  cursor-hover"
+                                title="GitHub Repo" data-en-title="GitHub Repo" data-fr-title="Repo GitHub" rel="noopener noreferrer"><span data-en="GITHUB ↗" data-fr="GITHUB ↗">GITHUB ↗</span></a></div>
+                    </div>
+                </article>
+                <article class="project-card project-5 reveal" style="--project-accent: #45C2FF; --project-tint: #e6f6ff;" aria-labelledby="project-title-5">
+                    <div class="project-media">
                         <img src="Assets/images/memorylens.png" alt="MemoryLens - AI-Powered Memory Assistant"
-                            class="w-full h-auto object-contain bg-white">
+                            class="project-image">
                     </div>
-                    <div class="flex justify-between items-start gap-4">
-                        <div class="flex-1 min-w-0">
-                            <div class="flex flex-wrap gap-2 mb-3 font-mono text-[10px] font-black uppercase">
-                                <span class="border-2 border-black bg-neo-purple px-2 py-1">AI App</span>
-                                <span class="border-2 border-black bg-white px-2 py-1">Computer Vision</span>
-                                <span class="border-2 border-black bg-neo-pink px-2 py-1">Feb 2025</span>
+                    <div class="project-body">
+                        <div class="project-metadata font-mono">
+                                <span>AI App</span>
+                                <span>Computer Vision</span>
+                                <span>Feb 2025</span>
                             </div>
-                            <h3
-                                class="text-2xl md:text-3xl font-black uppercase mb-2 group-hover:text-neo-pink transition-colors glitch-hover">
-                                MemoryLens</h3>
-                            <p class="font-mono text-sm mb-4" data-en="Mobile app designed for people affected by memory loss, using face recognition, object recognition, voice interaction, and saved memories to identify important people, places, and items." data-fr="Application mobile conçue pour les personnes touchées par la perte de mémoire, utilisant reconnaissance faciale, reconnaissance d'objets, interaction vocale et souvenirs enregistrés pour identifier personnes, lieux et objets importants.">Mobile app designed for people affected by memory loss, using face recognition, object recognition, voice interaction, and saved memories to identify important people, places, and items.</p>
-                            <p class="font-mono text-xs mb-4 border-l-4 border-black pl-3" data-en="Outcome: built an assistive AI experience combining FaceNet, YOLOv8, AR overlays, voice notes, and personalized memory retrieval." data-fr="Résultat : création d'une expérience d'IA assistive combinant FaceNet, YOLOv8, overlays AR, notes vocales et récupération personnalisée des souvenirs.">Outcome: built an assistive AI experience combining FaceNet, YOLOv8, AR overlays, voice notes, and personalized memory retrieval.</p>
-                            <div class="flex gap-2 font-mono text-xs font-bold flex-wrap">
-                                <span class="bg-neo-black text-white px-2 py-1">React Native</span>
-                                <span class="bg-neo-black text-white px-2 py-1">Auth0</span>
-                                <span class="bg-neo-black text-white px-2 py-1">Firestore</span>
-                                <span class="bg-neo-black text-white px-2 py-1">YOLOv8</span>
-                                <span class="bg-neo-black text-white px-2 py-1">FaceNet</span>
+                        <div class="project-heading"><span class="project-index" aria-hidden="true">05</span><h3 id="project-title-5" class="project-title">MemoryLens</h3></div>
+                        <p class="project-description" data-en="Mobile app designed for people affected by memory loss, using face recognition, object recognition, voice interaction, and saved memories to identify important people, places, and items." data-fr="Application mobile conçue pour les personnes touchées par la perte de mémoire, utilisant reconnaissance faciale, reconnaissance d'objets, interaction vocale et souvenirs enregistrés pour identifier personnes, lieux et objets importants.">Mobile app designed for people affected by memory loss, using face recognition, object recognition, voice interaction, and saved memories to identify important people, places, and items.</p>
+
+                        <p class="project-detail" data-en="Combines FaceNet, YOLOv8 and voice interaction for assistive memory support." data-fr="FaceNet, YOLOv8 et les interactions vocales au service des personnes touchées par des troubles de la mémoire.">Combines FaceNet, YOLOv8 and voice interaction for assistive memory support.</p>
+                        <div class="project-tech font-mono">
+                                <span>React Native</span>
+                                <span>Auth0</span>
+                                <span>Firestore</span>
+                                <span>YOLOv8</span>
+                                <span>FaceNet</span>
                             </div>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <a href="projects.html#memorylens"
-                                class="w-12 h-12 border-2 border-black bg-neo-black text-white flex items-center justify-center hover:bg-neo-white hover:text-black transition-all cursor-hover shadow-hard-sm"
-                                title="View More" data-en-title="View More" data-fr-title="Voir plus">
-                                <i class="ri-eye-line text-2xl"></i>
-                            </a>
-                            <a href="https://github.com/Zineb2a" target="_blank"
-                                class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-hover shadow-hard-sm"
-                                title="GitHub Profile" data-en-title="GitHub Profile" data-fr-title="Profil GitHub">
-                                <i class="ri-github-fill text-2xl"></i>
-                            </a>
-                        </div>
+                        <div class="project-actions font-mono"><a href="projects.html#memorylens"
+                                class="project-action project-action-primary cursor-hover"
+                                title="View More" data-en-title="View More" data-fr-title="Voir plus"><span data-en="PROJECT DETAILS →" data-fr="DÉTAILS DU PROJET →">PROJECT DETAILS →</span></a><a href="https://github.com/Zineb2a" target="_blank"
+                                class="project-action  cursor-hover"
+                                title="GitHub Profile" data-en-title="GitHub Profile" data-fr-title="Profil GitHub" rel="noopener noreferrer"><span data-en="GITHUB ↗" data-fr="GITHUB ↗">GITHUB ↗</span></a></div>
                     </div>
                 </article>
+                <article class="project-card project-6 reveal" style="--project-accent: #FF4FA3; --project-tint: #ffe5f2;" aria-labelledby="project-title-6">
+                    <div class="project-media">
+                        <img src="Assets/images/f1.png" alt="F1 Race Analysis"
+                            class="project-image">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-metadata font-mono">
+                                <span data-en="DATA ANALYTICS" data-fr="ANALYSE DE DONNÉES">DATA ANALYTICS</span>
+                                <span>OpenF1 API</span>
+                                <span>Jun 2024</span>
+                            </div>
+                        <div class="project-heading"><span class="project-index" aria-hidden="true">06</span><h3 id="project-title-6" class="project-title">F1 Race Analysis</h3></div>
+                        <p class="project-description" data-en="Data analysis pipeline exploring driver performance, tire degradation, pit stops, and race incidents from the Montreal Grand Prix 2024." data-fr="Pipeline d'analyse de données explorant les performances des pilotes, la dégradation des pneus, les arrêts et les incidents de course du Grand Prix de Montréal 2024.">Data analysis pipeline exploring driver performance, tire degradation, pit stops, and race incidents from the Montreal Grand Prix 2024.</p>
 
+                        <p class="project-detail" data-en="Clear comparisons between qualifying, race pace and strategic choices." data-fr="Des comparaisons claires entre les qualifications, le rythme de course et les choix stratégiques.">Clear comparisons between qualifying, race pace and strategic choices.</p>
+                        <div class="project-tech font-mono">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>OpenF1 API</span>
+                            </div>
+                        <div class="project-actions font-mono"><a href="projects.html#f1-race-analysis"
+                                class="project-action project-action-primary cursor-hover"
+                                title="View More" data-en-title="View More" data-fr-title="Voir plus"><span data-en="PROJECT DETAILS →" data-fr="DÉTAILS DU PROJET →">PROJECT DETAILS →</span></a><a href="https://github.com/Zineb2a/F1_Montreal2024_Analysis" target="_blank"
+                                class="project-action  cursor-hover"
+                                title="GitHub Repo" data-en-title="GitHub Repo" data-fr-title="Repo GitHub" rel="noopener noreferrer"><span data-en="GITHUB ↗" data-fr="GITHUB ↗">GITHUB ↗</span></a></div>
+                    </div>
+                </article>
             </div>
-
-            <div class="text-center mt-12">
-                <a href="projects.html"
-                    class="view-more-cta reveal inline-block bg-neo-black text-white px-12 md:px-16 py-5 md:py-6 font-bold font-mono text-xl md:text-2xl tracking-wide hover:bg-neo-white hover:text-black border-4 border-black transition-all shadow-hard hover:shadow-none cursor-hover">
-                    <span data-en="VIEW MORE" data-fr="VOIR PLUS">VIEW MORE</span>
-                </a>
+            <div class="work-archive">
+                <a href="projects.html" class="project-action project-action-primary font-mono cursor-hover"><span data-en="VIEW MORE →" data-fr="VOIR PLUS →">VIEW MORE →</span></a>
             </div>
         </div>
     </section>
@@ -1883,6 +1899,33 @@
 
         revealElements.forEach(el => revealObserver.observe(el));
 
+        // Timeline squares fill with scroll distance, without a timed pulse or glow.
+        const journeyNodes = [...document.querySelectorAll('#experience .checkpoint-node')];
+        let journeyFillFrame = null;
+
+        function updateJourneyFill() {
+            journeyFillFrame = null;
+            const viewportHeight = window.innerHeight;
+            const fillStart = viewportHeight * 0.8;
+            const fillDistance = viewportHeight * 0.25;
+            journeyNodes.forEach(node => {
+                const progress = Math.max(0, Math.min(1,
+                    (fillStart - node.getBoundingClientRect().top) / fillDistance));
+                node.style.setProperty('--checkpoint-progress', progress.toFixed(4));
+            });
+        }
+
+        function scheduleJourneyFill() {
+            if (journeyFillFrame === null) {
+                journeyFillFrame = requestAnimationFrame(updateJourneyFill);
+            }
+        }
+
+        window.addEventListener('scroll', scheduleJourneyFill, { passive: true });
+        window.addEventListener('resize', scheduleJourneyFill);
+        window.addEventListener('load', scheduleJourneyFill);
+        scheduleJourneyFill();
+
         // Language toggle
         const langEnButton = document.getElementById('lang-en');
         const langFrButton = document.getElementById('lang-fr');
@@ -1982,7 +2025,9 @@
                         MY: { visited: lang === 'fr' ? 'Voyage été 2025' : 'Summer 2025 travel', color: '#B56CFF' },
                         VN: { visited: lang === 'fr' ? 'Voyage été 2025' : 'Summer 2025 travel', color: '#7DFF8A' },
                         PH: { visited: lang === 'fr' ? 'Voyage été 2025' : 'Summer 2025 travel', color: '#FFE600' },
-                        ID: { visited: lang === 'fr' ? 'Voyage été 2025' : 'Summer 2025 travel', color: '#FF9A3D' }
+                        ID: { visited: lang === 'fr' ? 'Voyage été 2025' : 'Summer 2025 travel', color: '#FF9A3D' },
+                        TH: { visited: lang === 'fr' ? 'Visité' : 'Visited', color: '#FF6FA3' },
+                        QA: { visited: lang === 'fr' ? 'Visité' : 'Visited', color: '#FF9A3D' }
                     }
                 }
             });
